@@ -27,7 +27,7 @@ public enum Movement
 
 public class EnemyMovement : MonoBehaviour 
 {
-	private EnemySpawner es; //Create a placeholder to get information (list info) from EnemySpawner1
+	//private EnemySpawner es; //Create a placeholder to get information (list info) from EnemySpawner1
 
 	public Movement movementSelect;	//allows choice for the movement, instead of having each script separate. Any enemy can use this script.
 	public float speed = 1.0f; //speed of enemy
@@ -36,22 +36,22 @@ public class EnemyMovement : MonoBehaviour
 	private Vector3 axis;		// holds direction
 	private Vector3 pos;		//holds new position.
 	private bool bossInPosition = false;	//control for boss movement.
-	private int waveIndex;		//Get index for information on how sprite will spawn.
-	private int actionIndex;	//Get index for information on how sprite will spawn.
+	//private int waveIndex;		//Get index for information on how sprite will spawn.
+	//private int actionIndex;	//Get index for information on how sprite will spawn.
 
 
 	void Start()
 	{
 	
-		if (GameObject.FindWithTag ("EnemyController") != null) 
-		{
-			GameObject enemyController = GameObject.FindWithTag ("EnemyController"); //Get object holding script..
-			es = enemyController.GetComponent<EnemySpawner> ();	//get script information.
-			waveIndex = es.CurrentWave;		//get wave index for this enemy
-			actionIndex = es.CurrentAction;	//get action index for this enemy
-			//using the index for wave/action from above, get information involving the movementSelect from the enemySpawner1.
-			movementSelect = es.waves [waveIndex].actions [actionIndex].movementSelect;
-		}
+		//if (GameObject.FindWithTag ("EnemyController") != null) 
+		//{
+		//	GameObject enemyController = GameObject.FindWithTag ("EnemyController"); //Get object holding script..
+		//	es = enemyController.GetComponent<EnemySpawner> ();	//get script information.
+		//	waveIndex = es.CurrentWave;		//get wave index for this enemy
+		//	actionIndex = es.CurrentAction;	//get action index for this enemy
+		//	//using the index for wave/action from above, get information involving the movementSelect from the enemySpawner1.
+		//	movementSelect = es.waves [waveIndex].actions [actionIndex].movementSelect;
+		//}
 		pos = transform.position; 	//store current position
 		axis = transform.right;		//get right direction
 	}

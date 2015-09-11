@@ -26,7 +26,6 @@ public class EnemyHealth : MonoBehaviour
 	public int currentHealth;							//Tracks current health of enemy
 	public int scoreOnHit = 10;
 	public int scoreOnDeath = 100;
-	public bool isBoss = false;
 
 	// Use this for initialization
 	void Start ()
@@ -54,11 +53,7 @@ public class EnemyHealth : MonoBehaviour
 			{
 				Instantiate(deathEffect, col.transform.position, Quaternion.identity);
 			}
-			if(isBoss)
-			{
-				GameControl.control.loadNextLevel = true;
 
-			}
 			Destroy(gameObject); //destroy the enemy object
 
 		}

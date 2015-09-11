@@ -17,7 +17,7 @@ public class EnemyShootSpecial : MonoBehaviour
     public float amplitude = 1.0f;              //how far it moves back and forth (look up sine waves)
     public float rotSpeed = 0.0f;
     private Vector3 pos;                        //used to hold new position of the inital bullet location.
-    private Quaternion rotation;
+
 
     void Start()
     {

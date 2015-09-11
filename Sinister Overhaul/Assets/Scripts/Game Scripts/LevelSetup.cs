@@ -21,8 +21,8 @@ public class LevelSetup : MonoBehaviour
 	public GameObject player 		= null;
 	public GameObject[] enemySpawnerArr = null;
     // public Component[] camera = null;
-    public GameObject[] backgroundArr = null;
-    public GameObject lighting = null;
+   // public GameObject[] backgroundArr = null;
+    //public GameObject lighting = null;
 
 	public Vector3 playerSpawnPosition;
 	public Vector3 enemySpawnerPosition;

@@ -51,11 +51,17 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
@@ -87,7 +93,7 @@
     <Compile Include="Assets\Scripts\Enemy Scripts\Bullets\ObjectOscillator.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Misc\EnemyHealth.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Movements\EnemyMovement.cs" />
-    <Compile Include="Assets\Scripts\Enemy Scripts\Spawners\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Spawners\EnemyWaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Game Scripts\EnableForeground.cs" />
     <Compile Include="Assets\Scripts\Game Scripts\FPSDisplay.cs" />
     <Compile Include="Assets\Scripts\Game Scripts\GameControl.cs" />
@@ -102,6 +108,7 @@
     <Compile Include="Assets\Scripts\Game Scripts\VictoryManager.cs" />
     <Compile Include="Assets\Scripts\Multi-Purpose Scripts\DestroyDoubleBulletOnInvisible.cs" />
     <Compile Include="Assets\Scripts\Multi-Purpose Scripts\DestroyOnInvisible.cs" />
+    <Compile Include="Assets\Scripts\Multi-Purpose Scripts\DestroyOnNoChildren.cs" />
     <Compile Include="Assets\Scripts\Multi-Purpose Scripts\DestroyParticleSystemOnFinish.cs" />
     <Compile Include="Assets\Scripts\Multi-Purpose Scripts\GibOnTrigger2D.cs" />
     <Compile Include="Assets\Scripts\Multi-Purpose Scripts\LookAtPlayer.cs" />
@@ -114,6 +121,7 @@
     <Compile Include="Assets\Scripts\Player Scripts\Misc\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\Testing.WIP\EnemyMovementSine.cs" />
     <Compile Include="Assets\Scripts\Testing.WIP\EnemyShootWithForce.cs" />
+    <Compile Include="Assets\Scripts\Testing.WIP\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Testing.WIP\PlayerBarrelSineWave.cs" />
     <Compile Include="Assets\Scripts\Testing.WIP\PlayerBulletMovementSineWave.cs" />
     <Compile Include="Assets\Scripts\Testing.WIP\PlayerShootCosWave.cs" />
