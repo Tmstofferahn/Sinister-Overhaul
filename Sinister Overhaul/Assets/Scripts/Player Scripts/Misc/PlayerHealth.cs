@@ -34,11 +34,11 @@ public class PlayerHealth : MonoBehaviour
 		{
 
 			GameControl.control.currentHealth--;
-			Instantiate(hitEffect, col.transform.position, Quaternion.identity);
+			Instantiate(hitEffect, transform.position, Quaternion.identity);
 			if (GameControl.control.currentHealth <= 0) 
 			{
 				GameControl.control.currentLives--;
-				Instantiate(deathEffect, col.transform.position, Quaternion.identity);
+				Instantiate(deathEffect, transform.position, Quaternion.identity);
 				Destroy (gameObject);
 
 			}
