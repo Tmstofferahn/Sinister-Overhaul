@@ -8,20 +8,25 @@ public class MenuManager : MonoBehaviour {
     public Menu pauseMenu;
     private Menu CurrentMenu;
 
+    //-------------------------------------------
+    //Game Settings Variables
     private Slider difficulty;
+
+    //-------------------------------------------
+    //Audio Settings Variables
     private Slider masterVolume;
+    private Slider musicVolume;
+    private Slider masterSFXVolume;
     public MusicManager MM;
 
+
+    //-------------------------------------------
+    //Video Settings Variables
     Resolution[] resolutions;
-
-    [SerializeField]
-    Transform resolutionPanel;
-
-    [SerializeField]
-    GameObject resolutionButton;
-
-
+    [SerializeField] Transform resolutionPanel;
+    [SerializeField] GameObject resolutionButton;
     public Dropdown resolutionDropdown;
+    public Toggle fullScreenToggle;
 
     public void Start()
     {
@@ -40,36 +45,31 @@ public class MenuManager : MonoBehaviour {
 
         difficulty = GameObject.Find("Difficulty Slider").GetComponent<Slider>();
         masterVolume = GameObject.Find("Master Volume Slider").GetComponent<Slider>();
+        musicVolume = GameObject.Find("Music Volume Slider").GetComponent<Slider>();
+        masterSFXVolume = GameObject.Find("Master SFX Volume Slider").GetComponent<Slider>();
         difficulty.value = GameControl.control.difficultyFactor;
         masterVolume.value = GameControl.control.masterVolume;
+        musicVolume.value = GameControl.control.musicVolume;
+        masterSFXVolume.value = GameControl.control.masterSFXVolume;
+
 
         resolutions = Screen.resolutions;
         resolutionDropdown.options.Clear();
-        
+        fullScreenToggle.isOn = Screen.fullScreen;
 
         for (int i = 0; i < resolutions.Length; i++)
         {
-            resolutionDropdown.options.Add(new Dropdown.OptionData(ResToString(resolutions[i])));
-            //resolutionDropdown.options[i].text = ResToString(resolutions[i]);
-            //resolutionDropdown.value = i;    
+            resolutionDropdown.options.Add(new Dropdown.OptionData(ResToString(resolutions[i])));  
         }
-
+       
+        
         resolutionDropdown.onValueChanged.AddListener
             ( delegate {
                Screen.SetResolution(resolutions[resolutionDropdown.value].width,
-               resolutions[resolutionDropdown.value].height, true);
+               resolutions[resolutionDropdown.value].height, Screen.fullScreen);
         });
-        //for (int i = 0; i < resolutions.Length; i++)
-        //{
-        //    GameObject button = (GameObject)Instantiate(resolutionButton);
-        //    button.GetComponentInChildren<Text>().text = ResToString(resolutions[i]);
-        //    int index = i;
-        //    button.GetComponent<Button>().onClick.AddListener(
-        //        () => { SetResolution(index); }
-        //        );
-        //    button.transform.SetParent(resolutionPanel);
-        //    button.transform.localScale = new Vector3(1, 1, 1);
-        //}
+
+        resolutionDropdown.value = resolutions.Length - 1;
 
     }
 
@@ -172,7 +172,10 @@ public class MenuManager : MonoBehaviour {
         return res.width + " x " + res.height;
     }
 
-
+    public void ToggleFullScreen (bool fullScreen)
+    {
+        Screen.fullScreen = fullScreen;
+    }
     //---------------------------------------------------------------------------
     //Audio calls
     public void SetMasterVolume (float sliderMasterVolume)
@@ -180,14 +183,37 @@ public class MenuManager : MonoBehaviour {
         if (GameControl.control != null)
         {
             GameControl.control.masterVolume = sliderMasterVolume;
-            MusicSliderUpdate(GameControl.control.masterVolume);
+            MusicSliderUpdate(GameControl.control.masterVolume * GameControl.control.musicVolume);
         }
 		PlayerPrefs.SetFloat ("MasterVolume", sliderMasterVolume); //save preference
 		PlayerPrefs.Save ();
 
 	}
+    public void SetMusicVolume(float sliderMusicVolume)
+    {
+        if (GameControl.control != null)
+        {
+            GameControl.control.musicVolume = sliderMusicVolume;
+            MusicSliderUpdate(GameControl.control.masterVolume * GameControl.control.musicVolume);
 
-	public void MusicSliderUpdate(float val)
+        }
+        PlayerPrefs.SetFloat("MusicVolume", sliderMusicVolume); //save preference
+        PlayerPrefs.Save();
+
+    }
+    public void SetMasterSFXVolume(float sliderMasterSFXVolume)
+    {
+        if (GameControl.control != null)
+        {
+            GameControl.control.masterSFXVolume = sliderMasterSFXVolume;
+
+        }
+        PlayerPrefs.SetFloat("MasterSFXVolume", sliderMasterSFXVolume); //save preference
+        PlayerPrefs.Save();
+
+    }
+
+    public void MusicSliderUpdate(float val)
 	{
 		MM.SetVolume (val);
 	}

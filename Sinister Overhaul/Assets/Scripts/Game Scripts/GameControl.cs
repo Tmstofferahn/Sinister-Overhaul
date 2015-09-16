@@ -35,8 +35,12 @@ public class GameControl : MonoBehaviour
 	public bool loadNextLevel = false;
 	public bool loadMainMenu = false;
 	public bool isPaused = false;
-	public float masterVolume = 0.5f;
-	public float difficultyFactor = 1.0f;
+    public float difficultyFactor = 1.0f;
+    public float masterVolume = 0.5f;
+    public float musicVolume = 0.6f;
+    public float masterSFXVolume = 0.5f;
+
+
 
 
 
@@ -45,6 +49,9 @@ public class GameControl : MonoBehaviour
 		//load player preferences
 		difficultyFactor = PlayerPrefs.GetFloat ("Difficulty");
 		masterVolume = PlayerPrefs.GetFloat ("MasterVolume");
+        musicVolume = PlayerPrefs.GetFloat("MusicVolume");
+        masterSFXVolume = PlayerPrefs.GetFloat("MasterSFXVolume");
+
 
 		loading = false;
 		loadMainMenu = false;

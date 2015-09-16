@@ -5,7 +5,7 @@ public class MusicManager : MonoBehaviour {
 
     public AudioClip menuMusic;
     public AudioClip[] levelMusic;
-    public AudioSource source;
+    public AudioSource musicSource;
 
     public static MusicManager instance;
 
@@ -32,11 +32,11 @@ public class MusicManager : MonoBehaviour {
     {
         if (instance != null)
         {
-            if (instance.source != null)
+            if (instance.musicSource != null)
             {
-                instance.source.Stop();
-                instance.source.clip = instance.menuMusic;
-                instance.source.Play();
+                instance.musicSource.Stop();
+                instance.musicSource.clip = instance.menuMusic;
+                instance.musicSource.Play();
             }
         }
         else
@@ -49,11 +49,11 @@ public class MusicManager : MonoBehaviour {
     {
         if (instance != null)
         {
-            if (instance.source != null)
+            if (instance.musicSource != null)
             {
-                instance.source.Stop();
-                instance.source.clip = instance.levelMusic[Application.loadedLevel];
-                instance.source.Play();
+                instance.musicSource.Stop();
+                instance.musicSource.clip = instance.levelMusic[Application.loadedLevel];
+                instance.musicSource.Play();
             }
         }
         else
@@ -65,7 +65,8 @@ public class MusicManager : MonoBehaviour {
 
     public void SetVolume(float val)
 	{
-		instance.source.volume = val;
+		instance.musicSource.volume = val;
 	}
+  
 
 }

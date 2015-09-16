@@ -107,6 +107,7 @@
     <Compile Include="Assets\Scripts\Multi-Purpose Scripts\DestroyParticleSystemOnFinish.cs" />
     <Compile Include="Assets\Scripts\Multi-Purpose Scripts\GibOnTrigger2D.cs" />
     <Compile Include="Assets\Scripts\Multi-Purpose Scripts\LookAtPlayer.cs" />
+    <Compile Include="Assets\Scripts\Multi-Purpose Scripts\SFXVolumeCheck.cs" />
     <Compile Include="Assets\Scripts\Multi-Purpose Scripts\VisibleTest.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\Barrels\PlayerBarrelSpriteMovement.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\Barrels\PlayerShoot.cs" />

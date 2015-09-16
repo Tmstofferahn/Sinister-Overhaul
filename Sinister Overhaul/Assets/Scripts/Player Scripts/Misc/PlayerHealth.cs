@@ -21,11 +21,14 @@ public class PlayerHealth : MonoBehaviour
 	public Color[] collisionColor = {Color.white, Color.black};
 	private Material mat;
 
+
+
 	// Use this for initialization
 	void Start ()
 	{
 		GameControl.control.currentHealth = GameControl.control.initialHealth;
 		mat = GetComponentInChildren<MeshRenderer> ().material;
+
 	}
 
 	void OnTriggerEnter2D(Collider2D col) //Ensure that triggers are set to 2D
@@ -34,9 +37,10 @@ public class PlayerHealth : MonoBehaviour
 		{
 
 			GameControl.control.currentHealth--;
-			Instantiate(hitEffect, transform.position, Quaternion.identity);
-			if (GameControl.control.currentHealth <= 0) 
-			{
+
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
+			if (GameControl.control.currentHealth <= 0)
+            { 
 				GameControl.control.currentLives--;
 				Instantiate(deathEffect, transform.position, Quaternion.identity);
 				Destroy (gameObject);
