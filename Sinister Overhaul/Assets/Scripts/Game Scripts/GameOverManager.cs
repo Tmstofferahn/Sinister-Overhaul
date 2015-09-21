@@ -32,7 +32,8 @@ public class GameOverManager : MonoBehaviour
 			if(restartTimer >= restartDelay)
 			{
 				anim.SetBool ("GameOver", false);
-				// .. then reload the currently loaded level.
+                // .. then reload the currently loaded level.
+                GameControl.control.PlayerSetup();
 				Application.LoadLevel(0);
 			}
 		}

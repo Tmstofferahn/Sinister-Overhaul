@@ -97,6 +97,8 @@ public class EnemyWaveSpawner : MonoBehaviour
 
         foreach (Wave W in waves) //index of Waves.
         {
+            while (GameControl.control.currentLives <= 0)
+                yield return 0;
             yield return new WaitForSeconds(W.waveDelay);
 
             m_CurrentWave = waves.IndexOf(W);
@@ -106,6 +108,7 @@ public class EnemyWaveSpawner : MonoBehaviour
 
             if (waves.IndexOf(W) >= waves.Count - 1)
             {
+
                 GameObject lastWave = (GameObject)Instantiate(W.wavePrefab, customPositionFinal, Quaternion.identity);
 
                 while (lastWave.transform.childCount > 0)
@@ -151,12 +154,13 @@ public class EnemyWaveSpawner : MonoBehaviour
             case PositionSelect.CustomPosition:
                 {//CustomPosition stores the position set (x, y, z) in the final position.
                     customPositionFinal = customPosition;
+                    customPositionFinal.z = -2.0f;
                     break;
                 }
 
             default:
                 {//Default is used in case an error occurs. If none are selected it will zero out the x position.
-                    customPositionFinal = new Vector3(0, 0, 0);
+                    customPositionFinal = new Vector3(0, 0, -2);
                     break;
                 }
 
