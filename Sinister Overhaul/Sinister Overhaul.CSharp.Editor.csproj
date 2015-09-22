@@ -125,10 +125,10 @@
     <Compile Include="Assets\UniBulletHell\Script\Editor\UbhTimerInspector.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Art Assets\All Models\ShmupShipSample\readme.txt" />
-    <None Include="Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
-    <None Include="Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
-    <None Include="Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+    <None Include="Assets\Sinister Overhaul Main Assets\Art Assets\All Models\ShmupShipSample\readme.txt" />
+    <None Include="Assets\Sinister Overhaul Main Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
+    <None Include="Assets\Sinister Overhaul Main Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
+    <None Include="Assets\Sinister Overhaul Main Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
     <None Include="Assets\UniBulletHell\Example\PaintShotData\paint_shot_data_0001.txt" />
     <None Include="Assets\UniBulletHell\Example\PaintShotData\paint_shot_data_0002.txt" />
     <None Include="Assets\UniBulletHell\readme.txt" />

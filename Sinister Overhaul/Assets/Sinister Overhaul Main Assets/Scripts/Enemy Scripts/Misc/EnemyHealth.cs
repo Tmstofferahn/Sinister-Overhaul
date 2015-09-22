@@ -21,6 +21,7 @@ using System.Collections;
 public class EnemyHealth : MonoBehaviour
 {
 	public int initialHealth = 80;						//Starting hp for enemy.
+    public bool destructible = true;
 	public GameObject hitEffect = null;					//onHit particle effect to be used when enemy is hit.
 	public GameObject deathEffect = null;				//onDeath particle effect to be used when enemy is destroyed
 	public int currentHealth;							//Tracks current health of enemy
@@ -38,25 +39,29 @@ public class EnemyHealth : MonoBehaviour
 	
 	void OnTriggerEnter2D(Collider2D col) //Ensure that triggers are set to 2D
 	{
-		currentHealth--; //on hit, reduce hp by 1.
-		GameControl.control.score += scoreOnHit;
-		if (hitEffect != null) //if there is an onHit particle available, create it at point of impact.
-		{
-			Instantiate(hitEffect, col.transform.position, Quaternion.identity);
-		}
+        if (destructible == true)
+        {
+            currentHealth--; //on hit, reduce hp by 1.
+            GameControl.control.score += scoreOnHit;
+            if (hitEffect != null) //if there is an onHit particle available, create it at point of impact.
+            {
+                Instantiate(hitEffect, col.transform.position, Quaternion.identity);
+            }
 
 
-		if(currentHealth <= 0) //when the enemy's health is zero or less
-		{
-			GameControl.control.score += scoreOnDeath;
-			if(deathEffect != null) //if there is an onDeath particle effect available, create it at transform of enemy.
-			{
-				Instantiate(deathEffect, col.transform.position, Quaternion.identity);
-			}
+            if (currentHealth <= 0) //when the enemy's health is zero or less
+            {
+                GameControl.control.score += scoreOnDeath;
+                if (deathEffect != null) //if there is an onDeath particle effect available, create it at transform of enemy.
+                {
+                    Instantiate(deathEffect, col.transform.position, Quaternion.identity);
+                }
 
-			Destroy(gameObject); //destroy the enemy object
+                Destroy(gameObject); //destroy the enemy object
 
-		}
+            }
+        }
+	
 
 	}
 }
