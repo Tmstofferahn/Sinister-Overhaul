@@ -75,7 +75,7 @@ public class LevelSetup : MonoBehaviour
 
     void SetupMusic()
     {
-        if(MusicManager.instance != null)
+        if(MusicManager.musicControl != null)
         {
             MusicManager.PlayGameMusic();
         }

@@ -3,17 +3,18 @@ using System.Collections;
 
 public class MusicManager : MonoBehaviour {
 
+    public static MusicManager musicControl;
     public AudioClip menuMusic;
     public AudioClip[] levelMusic;
     public AudioSource musicSource;
 
-    public static MusicManager instance;
+
 
     void Awake()
     {
-        if (instance == null)
+        if (musicControl == null)
         {
-            instance = this;
+            musicControl = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -30,13 +31,13 @@ public class MusicManager : MonoBehaviour {
 
     static public void PlayMenuMusic()
     {
-        if (instance != null)
+        if (musicControl != null)
         {
-            if (instance.musicSource != null)
+            if (musicControl.musicSource != null)
             {
-                instance.musicSource.Stop();
-                instance.musicSource.clip = instance.menuMusic;
-                instance.musicSource.Play();
+                musicControl.musicSource.Stop();
+                musicControl.musicSource.clip = musicControl.menuMusic;
+                musicControl.musicSource.Play();
             }
         }
         else
@@ -47,13 +48,13 @@ public class MusicManager : MonoBehaviour {
 
     static public void PlayGameMusic()
     {
-        if (instance != null)
+        if (musicControl != null)
         {
-            if (instance.musicSource != null)
+            if (musicControl.musicSource != null)
             {
-                instance.musicSource.Stop();
-                instance.musicSource.clip = instance.levelMusic[Application.loadedLevel];
-                instance.musicSource.Play();
+                musicControl.musicSource.Stop();
+                musicControl.musicSource.clip = musicControl.levelMusic[Application.loadedLevel];
+                musicControl.musicSource.Play();
             }
         }
         else
@@ -65,7 +66,7 @@ public class MusicManager : MonoBehaviour {
 
     public void SetVolume(float val)
 	{
-		instance.musicSource.volume = val;
+        musicControl.musicSource.volume = val;
 	}
   
 

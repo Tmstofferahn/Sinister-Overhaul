@@ -17,7 +17,7 @@ public class MenuManager : MonoBehaviour {
     private Slider masterVolume;
     private Slider musicVolume;
     private Slider masterSFXVolume;
-    public MusicManager MM;
+
 
 
     //-------------------------------------------
@@ -215,12 +215,12 @@ public class MenuManager : MonoBehaviour {
 
     public void MusicSliderUpdate(float val)
 	{
-		MM.SetVolume (val);
+		MusicManager.musicControl.SetVolume (val);
 	}
 	public void MusicToggle(bool val)
 	{
 		masterVolume.interactable = val;
-		MM.SetVolume (val ? masterVolume.value : 0f);
+        MusicManager.musicControl.SetVolume (val ? masterVolume.value : 0f);
 	}
 
 
