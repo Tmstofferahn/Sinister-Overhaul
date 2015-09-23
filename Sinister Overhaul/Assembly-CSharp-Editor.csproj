@@ -51,11 +51,11 @@
      <Compile Include="Assets\UniBulletHell\Script\Editor\UbhTimerInspector.cs" />
      <None Include="Assets\UniBulletHell\Example\PaintShotData\paint_shot_data_0001.txt" />
      <None Include="Assets\UniBulletHell\readme.txt" />
-     <None Include="Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
-     <None Include="Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
+     <None Include="Assets\Sinister Overhaul Main Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+     <None Include="Assets\Sinister Overhaul Main Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
      <None Include="Assets\UniBulletHell\Example\PaintShotData\paint_shot_data_0002.txt" />
-     <None Include="Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
-     <None Include="Assets\Art Assets\POSSIBLE MODELS\ShmupShipSample\readme.txt" />
+     <None Include="Assets\Sinister Overhaul Main Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
+     <None Include="Assets\Sinister Overhaul Main Assets\Art Assets\All Models\ShmupShipSample\readme.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>

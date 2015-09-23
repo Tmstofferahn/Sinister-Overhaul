@@ -50,6 +50,7 @@ public class GameControl : MonoBehaviour
 
     void Awake()
     {
+        shieldTimeRemaining = shieldWaitTime;
         //load player preferences
         difficultyFactor = PlayerPrefs.GetFloat("Difficulty");
         masterVolume = PlayerPrefs.GetFloat("MasterVolume");

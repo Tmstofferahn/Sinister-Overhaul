@@ -63,7 +63,6 @@ public class PlayerController : MonoBehaviour
             {
                 GameControl.control.shieldReady = false;
                 shield.SetActive(true);
-                GameControl.control.ShieldTimer();
 
 
             }
