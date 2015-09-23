@@ -14,6 +14,7 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public GameObject shield;
 	public float invulnerableLength = 3.0f;
 	private bool invulnerable = false;
 	public GameObject hitEffect;
@@ -33,7 +34,8 @@ public class PlayerHealth : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col) //Ensure that triggers are set to 2D
 	{
-		if (invulnerable == false && GameControl.control.loadNextLevel == false) 
+       
+		if (invulnerable == false && GameControl.control.loadNextLevel == false && shield.activeSelf == false) 
 		{
 
 			GameControl.control.currentHealth--;

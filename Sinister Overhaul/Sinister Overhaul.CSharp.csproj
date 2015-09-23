@@ -51,17 +51,11 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
@@ -124,6 +118,7 @@
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Bullets\PlayerBulletMovement.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Controls\PlayerController.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Misc\PlayerHealth.cs" />
+    <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Misc\PlayerShieldHealth.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Testing.WIP\EnemyMovementSine.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Testing.WIP\EnemyShootWithForce.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Testing.WIP\EnemySpawner.cs" />
