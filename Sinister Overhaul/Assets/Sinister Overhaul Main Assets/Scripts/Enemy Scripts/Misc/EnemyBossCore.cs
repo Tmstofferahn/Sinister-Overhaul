@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyBossCore : MonoBehaviour {
 
     public bool isMainCore = true;
+    public GameObject nextBossPhase;
     public GameObject[] hulls;
     public GameObject[] turrets;
     public GameObject[] cargo;
@@ -13,6 +14,7 @@ public class EnemyBossCore : MonoBehaviour {
     bool turretsDestroyed = false;
     bool cargoDestroyed = false;
     bool hullsDestroyed = false;
+    
 
 	// Use this for initialization
 	void Start ()
@@ -37,7 +39,12 @@ public class EnemyBossCore : MonoBehaviour {
         {
             DestroyHulls();
         }
-
+        if(hullsDestroyed == true && nextBossPhase != null)
+        {
+            GameObject newBoss = Instantiate(nextBossPhase, transform.position, transform.rotation) as GameObject;
+            newBoss.transform.parent = transform.parent;
+            Destroy(gameObject);
+        }
 
 
        
