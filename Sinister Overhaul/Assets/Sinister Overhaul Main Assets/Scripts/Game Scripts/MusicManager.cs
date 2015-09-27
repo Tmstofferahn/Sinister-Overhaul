@@ -6,6 +6,7 @@ public class MusicManager : MonoBehaviour {
     public static MusicManager musicControl;
     public AudioClip menuMusic;
     public AudioClip[] levelMusic;
+    public AudioClip[] bossMusic;
     public AudioSource musicSource;
 
 
@@ -62,6 +63,24 @@ public class MusicManager : MonoBehaviour {
             Debug.LogError("Unavailable MusicPlayer component");
         }
     }
+
+    static public void PlayBossMusic()
+    {
+        if (musicControl != null)
+        {
+            if (musicControl.musicSource != null)
+            {
+                musicControl.musicSource.Stop();
+                musicControl.musicSource.clip = musicControl.bossMusic[Application.loadedLevel];
+                musicControl.musicSource.Play();
+            }
+        }
+        else
+        {
+            Debug.LogError("Unavailable MusicPlayer component");
+        }
+    }
+
 
 
     public void SetVolume(float val)

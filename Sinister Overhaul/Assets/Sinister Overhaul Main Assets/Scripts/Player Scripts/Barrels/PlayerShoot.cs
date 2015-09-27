@@ -24,7 +24,7 @@ public class PlayerShoot : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetButton ("Fire1") && readyToShoot && GameControl.control.isPaused == false) 
+		if(readyToShoot == true && GameControl.control.isPaused == false && GameControl.control.loadNextLevel == false) 
 		{
 			Instantiate (bullet, transform.position, transform.rotation);
 			readyToShoot = false;

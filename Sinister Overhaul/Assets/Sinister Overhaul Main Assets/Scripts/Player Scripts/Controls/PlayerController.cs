@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject shield;
 
-    private bool shieldReady = true;
     public float maxSpeed = 5;          //Max speed in any direction the ship can move.
     public float maxSpeedAiming = 2.5f; //Max speed in any direction the ship can move while aiming.
     private float speed;                //variable to hold speed based upon aiming or not.
@@ -44,20 +43,20 @@ public class PlayerController : MonoBehaviour
     {
 
         //if the player is pressing right mouse or left alt then they are aiming.
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire1"))
         {
             animator.SetBool("Aiming", true);   //change animation parameter Aiming to true
             setAiming = true;                   //change public to false
             speed = maxSpeedAiming;             //set new speed
         }
-        else if (Input.GetButtonUp("Fire2")) //on release, set aiming to false
+        else if (Input.GetButtonUp("Fire1")) //on release, set aiming to false
         {
             animator.SetBool("Aiming", false); //change animation parameter Aiming to false.
             setAiming = false;                  //change public to false
             speed = maxSpeed;                   //set new speed
         }
 
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown("Fire2"))
         {
             if (GameControl.control.shieldReady == true)
             {

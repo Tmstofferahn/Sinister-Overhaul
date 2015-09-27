@@ -17,9 +17,9 @@ public class LoadingScreen : MonoBehaviour
 		text.SetActive (false);
 	
 	}
-	
-	// Update is called once per frame
-	void Update()
+
+    // Update is called once per frame
+    void Update()
 	{
 		if (GameControl.control.loadNextLevel) 
 		{

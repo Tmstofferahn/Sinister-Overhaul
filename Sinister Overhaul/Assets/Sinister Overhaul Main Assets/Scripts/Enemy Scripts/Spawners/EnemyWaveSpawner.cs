@@ -110,7 +110,7 @@ public class EnemyWaveSpawner : MonoBehaviour
             {
 
                 GameObject lastWave = (GameObject)Instantiate(W.wavePrefab, customPositionFinal, Quaternion.identity);
-
+                MusicManager.PlayBossMusic();
                 while (lastWave.transform.childCount > 0)
                 {
                     yield return 0;

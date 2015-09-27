@@ -57,7 +57,7 @@ public class PlayerShootSineWave : MonoBehaviour
 
 		pos = transform.position;									//Get position of barrel.
 		pos.x += Mathf.Sin (Time.time * frequency)*amplitudeFinal;	//apply sine wave movement in X coordinate for the initial position of the bullet
-		if (Input.GetButton ("Fire1") && readyToShoot && GameControl.control.isPaused == false) 
+		if (readyToShoot && GameControl.control.isPaused == false && GameControl.control.loadNextLevel == false) 
 		{
 			Instantiate (bullet, pos, transform.rotation);			//apply position and rotation to spawn of bullet, then spawn bullet
 			readyToShoot = false;									//player just shot, can no longer shoot.

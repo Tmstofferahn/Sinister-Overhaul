@@ -107,6 +107,12 @@ public class GameControl : MonoBehaviour
         {
             Pause();
         }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            loadNextLevel = true;
+        }
+
+    
 
 
     }
@@ -166,6 +172,12 @@ public class GameControl : MonoBehaviour
 
     public void ShieldTimer()
     {
+        if (loadNextLevel == true)
+        {
+            shieldTimeRemaining = shieldWaitTime;
+            shieldReady = true;
+        }
+    
         shieldTimeRemaining -= Time.deltaTime;
 
         if (shieldTimeRemaining <= 0)
@@ -188,7 +200,17 @@ public class GameControl : MonoBehaviour
 			GUI.Label (new Rect (Screen.width - 100, 10, 100, 50), "Score: \n" + score);
 			GUI.Label (new Rect (Screen.width / 2 - 50, 10, 100, 50), "Highscore: \n" + highScore);
 
-            GUI.Label(new Rect  (Screen.width / 2 - 50, 40, 100, 50), "Time on Shield: \n" + tempShieldTime);
+            if (shieldReady == false)
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 50, 40, 100, 50), "Time on Shield: \n" + tempShieldTime);
+            }
+            if (shieldReady == true)
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 50, 40, 100, 50), "Time on Shield: READY");
+            }
+
+
+
 
 
         }
