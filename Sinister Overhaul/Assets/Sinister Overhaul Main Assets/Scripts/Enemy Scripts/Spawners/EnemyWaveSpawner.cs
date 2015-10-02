@@ -97,14 +97,16 @@ public class EnemyWaveSpawner : MonoBehaviour
 
         foreach (Wave W in waves) //index of Waves.
         {
-            while (GameControl.control.currentLives <= 0)
-                yield return 0;
-            yield return new WaitForSeconds(W.waveDelay);
 
+            yield return StartCoroutine(UbhUtil.WaitForSeconds(W.waveDelay));
+           
             m_CurrentWave = waves.IndexOf(W);
 
             //select proper spawn position based upon selection
             SpawnPositionSelect(W.positionSelection, W.customPosition);
+
+            while (GameControl.control.currentLives <= 0)
+                yield return null;
 
             if (waves.IndexOf(W) >= waves.Count - 1)
             {

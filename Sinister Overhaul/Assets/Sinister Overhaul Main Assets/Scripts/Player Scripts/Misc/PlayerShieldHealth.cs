@@ -30,7 +30,7 @@ public class PlayerShieldHealth : MonoBehaviour
 
     IEnumerator DeactivateAfterSeconds()
     {
-        yield return new WaitForSeconds(timeAlive);
+        yield return StartCoroutine(UbhUtil.WaitForSeconds(timeAlive));
         gameObject.SetActive(false);
     }
 

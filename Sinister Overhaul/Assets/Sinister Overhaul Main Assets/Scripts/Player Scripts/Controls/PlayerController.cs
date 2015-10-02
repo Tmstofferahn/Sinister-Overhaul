@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private float speed;                //variable to hold speed based upon aiming or not.
     public Boundary boundary;           //create a boundary object
 
+    private Vector2 tempVelocity;
+    private bool isSleeping = false;
     Animator animator;                  //Get animator access
     public bool aiming { get { return setAiming; } }    //public for other scripts to use	
     private bool setAiming;             //bool to hold if aiming for using in above public bool aiming
@@ -40,7 +42,20 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+        if (GameControl.control.isPaused == true )
+        {
+            if (isSleeping == false)
+            {
+                tempVelocity = GetComponent<Rigidbody2D>().velocity;
+                GetComponent<Rigidbody2D>().Sleep();
+                isSleeping = true;
+            }
+            return;
+        }
+
+
+
 
         //if the player is pressing right mouse or left alt then they are aiming.
         if (Input.GetButtonDown("Fire1"))
@@ -62,8 +77,6 @@ public class PlayerController : MonoBehaviour
             {
                 GameControl.control.shieldReady = false;
                 shield.SetActive(true);
-
-
             }
         }
         if (GameControl.control.shieldReady == false)
@@ -76,6 +89,18 @@ public class PlayerController : MonoBehaviour
 
         //Player movement (x, y)
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveHorizontal * speed, moveVertical * speed);
+
+        if (GameControl.control.isPaused == false)
+        {
+            if (isSleeping == true)
+            {
+
+                GetComponent<Rigidbody2D>().WakeUp();
+                GetComponent<Rigidbody2D>().velocity = tempVelocity;
+                isSleeping = false;
+            }
+
+        }
 
         //limit player movement to inside boundary
         GetComponent<Rigidbody2D>().position = new Vector3

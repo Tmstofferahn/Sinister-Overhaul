@@ -19,9 +19,11 @@ public class PlayerBulletMovement : MonoBehaviour
 	public float speed = 1.0f; //speed of bullet
 	
 	// Update is called once per frame
-	void Update () 
-	{
-		transform.position += transform.up * speed * Time.deltaTime;
+	void Update ()
+    {
+        if(GameControl.control.isPaused == true)
+            return;
+        transform.position += transform.up * speed * Time.deltaTime;
 	
 	}//end of Update()
 }

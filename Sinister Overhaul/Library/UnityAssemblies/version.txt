@@ -1,10 +1,8 @@
-5.2.0f3:2.1.0.0
+5.2.1f1:2.1.0.0
 StandaloneWindows
 Y:/Unity/Editor/Data/Managed/UnityEngine.dll
-Y:/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll
 Y:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
 Y:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
-Y:/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll
 Y:/Unity/Editor/Data/Managed/UnityEditor.dll
 Y:/Unity/Editor/Data\Managed/Mono.Cecil.dll
 Y:/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll
@@ -16,8 +14,8 @@ Y:\Unity\Editor\Data\PlaybackEngines\androidplayer/UnityEditor.Android.Extension
 Y:/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Y:\Unity\Editor\Data\PlaybackEngines\wp8support/UnityEditor.WP8.Extensions.dll
 Y:\Unity\Editor\Data\PlaybackEngines\metrosupport/UnityEditor.Metro.Extensions.dll
-Y:\Unity\Editor\Data\PlaybackEngines\TizenPlayer\TizenPlayer/UnityEditor.Tizen.Extensions.dll
-Y:\Unity\Editor\Data\PlaybackEngines\stvplayer\STVPlayer/UnityEditor.SamsungTV.Extensions.dll
+Y:\Unity\Editor\Data\PlaybackEngines\TizenPlayer/UnityEditor.Tizen.Extensions.dll
+Y:\Unity\Editor\Data\PlaybackEngines\stvplayer/UnityEditor.SamsungTV.Extensions.dll
 Y:\Unity\Editor\Data\PlaybackEngines\webglsupport/UnityEditor.WebGL.Extensions.dll
 Y:\Unity\Editor\Data\PlaybackEngines\linuxstandalonesupport/UnityEditor.LinuxStandalone.Extensions.dll
 Y:\Unity\Editor\Data\PlaybackEngines\windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll

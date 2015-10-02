@@ -28,7 +28,7 @@ public class PlayerShootSineWave : MonoBehaviour
 	public float amplitude = 1.0f; 				//how far it moves back and forth (look up sine waves)
 	public float amplitudeAiming = 0.5f;		//how far it moves back and forth (look up sine waves) while aiming
 	private float amplitudeFinal;				//final variable for amplitude
-
+    private float moveTime = 0.0f;
 	private Vector3 pos;						//used to hold new position of the inital bullet location.
 	public Vector3 Pos { get{ return pos;}}		//stores a public version of pos for usage elsewhere.
 
@@ -41,7 +41,11 @@ public class PlayerShootSineWave : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (player != null) //if player is not declared, then do nothing. if declared....
+        if (GameControl.control.isPaused)
+            return;
+        moveTime += Time.deltaTime;
+
+        if (player != null) //if player is not declared, then do nothing. if declared....
 		{
 			playerController = player.GetComponent<PlayerController> (); //get information of playerController script
 			if (playerController.aiming == true) 		//if the player is aiming.
@@ -56,7 +60,7 @@ public class PlayerShootSineWave : MonoBehaviour
 
 
 		pos = transform.position;									//Get position of barrel.
-		pos.x += Mathf.Sin (Time.time * frequency)*amplitudeFinal;	//apply sine wave movement in X coordinate for the initial position of the bullet
+		pos.x += Mathf.Sin (moveTime * frequency)*amplitudeFinal;	//apply sine wave movement in X coordinate for the initial position of the bullet
 		if (readyToShoot && GameControl.control.isPaused == false && GameControl.control.loadNextLevel == false) 
 		{
 			Instantiate (bullet, pos, transform.rotation);			//apply position and rotation to spawn of bullet, then spawn bullet

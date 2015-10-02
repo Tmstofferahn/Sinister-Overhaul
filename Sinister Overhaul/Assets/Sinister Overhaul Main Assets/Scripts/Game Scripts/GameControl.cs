@@ -124,11 +124,11 @@ public class GameControl : MonoBehaviour
             isPaused = !isPaused;
             if (isPaused)
             {
-                Time.timeScale = 0;
+               // Time.timeScale = 0;
             }
             else if (!isPaused)
             {
-                Time.timeScale = 1;
+               // Time.timeScale = 1;
             }
         }
 
@@ -172,20 +172,24 @@ public class GameControl : MonoBehaviour
 
     public void ShieldTimer()
     {
-        if (loadNextLevel == true)
+        if (isPaused == false)
         {
-            shieldTimeRemaining = shieldWaitTime;
-            shieldReady = true;
-        }
-    
-        shieldTimeRemaining -= Time.deltaTime;
+            if (loadNextLevel == true)
+            {
+                shieldTimeRemaining = shieldWaitTime;
+                shieldReady = true;
+            }
 
-        if (shieldTimeRemaining <= 0)
-        {
-            shieldReady = true;
-            shieldTimeRemaining = shieldWaitTime;
+            shieldTimeRemaining -= Time.deltaTime;
 
+            if (shieldTimeRemaining <= 0)
+            {
+                shieldReady = true;
+                shieldTimeRemaining = shieldWaitTime;
+
+            }
         }
+
 
     }
 	void OnGUI()

@@ -21,6 +21,8 @@ public class PlayerBarrelSpriteMovement : MonoBehaviour
 
 	void Update () 
 	{
+        if (GameControl.control.isPaused == true)
+            return;
 		if (barrel != null) //if no barrel object, the sprite will not do anything.
 		{
 			playerShootSineWave = barrel.GetComponent<PlayerShootSineWave> (); //Get script info from barrel object

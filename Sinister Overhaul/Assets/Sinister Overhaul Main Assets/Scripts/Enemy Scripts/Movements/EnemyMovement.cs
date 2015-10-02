@@ -58,8 +58,10 @@ public class EnemyMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+        if (GameControl.control.isPaused == true)
+            return;
 
-		switch (movementSelect) 
+        switch (movementSelect) 
 		{
 		//begin switch depending on which movement is selected
 		case Movement.Straight:
