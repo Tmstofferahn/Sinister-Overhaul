@@ -21,8 +21,6 @@ public class PlayerBulletMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(GameControl.control.isPaused == true)
-            return;
         transform.position += transform.up * speed * Time.deltaTime;
 	
 	}//end of Update()

@@ -57,18 +57,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-=======
->>>>>>> parent of a1aeae6... Update before beta
-=======
->>>>>>> parent of a1aeae6... Update before beta
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -107,6 +95,7 @@
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\FPSDisplay.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\GameControl.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\GameOverManager.cs" />
+    <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\HUDFPS.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\LevelSetup.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\LoadingScreen.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\Menu.cs" />

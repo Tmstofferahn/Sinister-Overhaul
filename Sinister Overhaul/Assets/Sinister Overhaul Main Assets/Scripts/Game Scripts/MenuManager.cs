@@ -3,10 +3,13 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class MenuManager : MonoBehaviour {
+    public static MenuManager guiControl;
 
     public Menu mainMenu;
     public Menu pauseMenu;
     private Menu CurrentMenu;
+
+    public GameObject FPS;
 
     //-------------------------------------------
     //Game Settings Variables
@@ -27,6 +30,20 @@ public class MenuManager : MonoBehaviour {
     [SerializeField] GameObject resolutionButton;
     public Dropdown resolutionDropdown;
     public Toggle fullScreenToggle;
+
+    void Awake()
+    {
+        if (guiControl == null)
+        {
+            guiControl = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     public void Start()
     {
@@ -59,18 +76,19 @@ public class MenuManager : MonoBehaviour {
 
         for (int i = 0; i < resolutions.Length; i++)
         {
-            resolutionDropdown.options.Add(new Dropdown.OptionData(ResToString(resolutions[i])));  
+            resolutionDropdown.options.Add(new Dropdown.OptionData(ResToString(resolutions[i])));
         }
-       
-        
+
+
         resolutionDropdown.onValueChanged.AddListener
-            ( delegate {
-               Screen.SetResolution(resolutions[resolutionDropdown.value].width,
-               resolutions[resolutionDropdown.value].height, Screen.fullScreen);
-        });
+            (delegate {
+                Screen.SetResolution(resolutions[resolutionDropdown.value].width,
+                resolutions[resolutionDropdown.value].height, Screen.fullScreen);
+
+            });
 
         resolutionDropdown.value = resolutions.Length - 1;
-
+        
     }
 
 
@@ -99,6 +117,11 @@ public class MenuManager : MonoBehaviour {
 
     //-----------------------------------------------------------------------------
     //Menu calls
+    public void ToggleFPS()
+    {
+        FPS.SetActive(!FPS.activeSelf);
+    }
+
     public void ReturnToInitial()
     {
         CurrentMenu.IsOpen = false;
@@ -164,7 +187,9 @@ public class MenuManager : MonoBehaviour {
     //Video calls
     void SetResolution(int index)
     {
+
         Screen.SetResolution(resolutions[index].width, resolutions[index].height, false, 0);
+
     }
 
     string ResToString(Resolution res)

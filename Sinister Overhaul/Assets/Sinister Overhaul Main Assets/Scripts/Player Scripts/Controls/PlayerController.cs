@@ -43,18 +43,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        if (GameControl.control.isPaused == true )
-        {
-            if (isSleeping == false)
-            {
-                tempVelocity = GetComponent<Rigidbody2D>().velocity;
-                GetComponent<Rigidbody2D>().Sleep();
-                isSleeping = true;
-            }
-            return;
-        }
-
-
 
 
         //if the player is pressing right mouse or left alt then they are aiming.
@@ -90,17 +78,6 @@ public class PlayerController : MonoBehaviour
         //Player movement (x, y)
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveHorizontal * speed, moveVertical * speed);
 
-        if (GameControl.control.isPaused == false)
-        {
-            if (isSleeping == true)
-            {
-
-                GetComponent<Rigidbody2D>().WakeUp();
-                GetComponent<Rigidbody2D>().velocity = tempVelocity;
-                isSleeping = false;
-            }
-
-        }
 
         //limit player movement to inside boundary
         GetComponent<Rigidbody2D>().position = new Vector3

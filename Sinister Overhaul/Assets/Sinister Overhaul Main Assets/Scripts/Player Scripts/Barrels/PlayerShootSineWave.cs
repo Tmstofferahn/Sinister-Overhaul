@@ -41,8 +41,7 @@ public class PlayerShootSineWave : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-        if (GameControl.control.isPaused)
-            return;
+
         moveTime += Time.deltaTime;
 
         if (player != null) //if player is not declared, then do nothing. if declared....

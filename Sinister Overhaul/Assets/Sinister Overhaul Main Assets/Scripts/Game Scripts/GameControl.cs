@@ -42,6 +42,7 @@ public class GameControl : MonoBehaviour
     public float masterVolume = 0.5f;
     public float musicVolume = 0.6f;
     public float masterSFXVolume = 0.5f;
+    public bool showFPS = false;
 
 
 
@@ -112,6 +113,11 @@ public class GameControl : MonoBehaviour
             loadNextLevel = true;
         }
 
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            MenuManager.guiControl.ToggleFPS();
+        }
+
     
 
 
@@ -124,12 +130,15 @@ public class GameControl : MonoBehaviour
             isPaused = !isPaused;
             if (isPaused)
             {
-               // Time.timeScale = 0;
+                Time.timeScale = 0;
             }
             else if (!isPaused)
             {
-               // Time.timeScale = 1;
+                Time.timeScale = 1;
+                
+
             }
+
         }
 
     }
