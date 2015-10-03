@@ -1,6 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Base path: Y:/Unity/Editor/Data
 Pipe name: \\.\pipe\UnityShaderCompiler-32bit-1-11668
+=======
+Base path: C:/Program Files/Unity/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-32bit-1-10340
+>>>>>>> parent of a1aeae6... Update before beta
 =======
 Base path: C:/Program Files/Unity/Editor/Data
 Pipe name: \\.\pipe\UnityShaderCompiler-32bit-1-10340
