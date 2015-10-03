@@ -105,6 +105,7 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="UnityEditor.Networking">
       <HintPath>Library\UnityAssemblies\UnityEditor.Networking.dll</HintPath>
     </Reference>
@@ -120,6 +121,8 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
+=======
+>>>>>>> parent of a1aeae6... Update before beta
     <Reference Include="Mono.Cecil">
       <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
     </Reference>
