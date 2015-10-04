@@ -95,9 +95,43 @@ public class EnemyWaveSpawner : MonoBehaviour
     IEnumerator SpawnWaves()
     {
 
+        if (GameControl.control.lastWave == true)
+        {
+            foreach(Wave W in waves)
+            {
+                
+
+                m_CurrentWave = waves.IndexOf(W);
+
+                //select proper spawn position based upon selection
+                SpawnPositionSelect(W.positionSelection, W.customPosition);
+
+                while (GameControl.control.currentLives <= 0)
+                    yield return null;
+
+                if (waves.IndexOf(W) >= waves.Count - 1)
+                {
+                    yield return StartCoroutine(UbhUtil.WaitForSeconds(W.waveDelay));
+
+                    GameControl.control.lastWave = true;
+                    GameObject lastWave = (GameObject)Instantiate(W.wavePrefab, customPositionFinal, Quaternion.identity);
+                    MusicManager.PlayBossMusic();
+                    while (lastWave.transform.childCount > 0)
+                    {
+                        yield return 0;
+                    }
+
+                    yield return new WaitForSeconds(5.0f);
+                    GameControl.control.loadNextLevel = true;
+
+                }
+            }
+
+        }
+
         foreach (Wave W in waves) //index of Waves.
         {
-
+    
             yield return StartCoroutine(UbhUtil.WaitForSeconds(W.waveDelay));
            
             m_CurrentWave = waves.IndexOf(W);
@@ -110,15 +144,17 @@ public class EnemyWaveSpawner : MonoBehaviour
 
             if (waves.IndexOf(W) >= waves.Count - 1)
             {
-
+                GameControl.control.lastWave = true;
                 GameObject lastWave = (GameObject)Instantiate(W.wavePrefab, customPositionFinal, Quaternion.identity);
                 MusicManager.PlayBossMusic();
                 while (lastWave.transform.childCount > 0)
                 {
                     yield return 0;
                 }
+                
                 yield return new WaitForSeconds(5.0f);
                 GameControl.control.loadNextLevel = true;
+
             }
             else
             {

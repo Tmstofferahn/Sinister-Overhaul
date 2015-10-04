@@ -15,12 +15,56 @@ Loading Y:\Tim's GitHub\Sinister-Overhaul\Sinister Overhaul\Sinister Overhaul_Da
 Platform assembly: Y:\Tim's GitHub\Sinister-Overhaul\Sinister Overhaul\Sinister Overhaul_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading Y:\Tim's GitHub\Sinister-Overhaul\Sinister Overhaul\Sinister Overhaul_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: Y:\Tim's GitHub\Sinister-Overhaul\Sinister Overhaul\Sinister Overhaul_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.112 seconds
+- Completed reload, in  0.070 seconds
 desktop: 1920x1080 60Hz; virtual: 3360x1080 at -1440,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: Y:\Tim's GitHub\Sinister-Overhaul\Sinister Overhaul\Sinister Overhaul_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 774c -> priority: 1 
-  Thread -> id: 6708 -> priority: 1 
+  Thread -> id: c1c4 -> priority: 1 
+  Thread -> id: c270 -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.280860 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 4049.
+Total: 6.308581 ms (FindLiveObjects: 0.982370 ms CreateObjectMapping: 3.783447 ms MarkObjects: 1.528393 ms  DeleteObjects: 0.013782 ms)
+
+Cannot shot because TargetTransform is not set.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Cannot shot because TargetTransform is not set.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.837732 ms
+
+Unloading 103 unused Assets to reduce memory usage. Loaded Objects now: 4515.
+Total: 3.632719 ms (FindLiveObjects: 0.265680 ms CreateObjectMapping: 0.338111 ms MarkObjects: 2.983475 ms  DeleteObjects: 0.044573 ms)
+
+Cannot shot because TargetTransform is not set.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Cannot shot because TargetTransform is not set.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.025995 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 4515.
+Total: 2.495222 ms (FindLiveObjects: 0.203218 ms CreateObjectMapping: 0.209083 ms MarkObjects: 2.067670 ms  DeleteObjects: 0.014369 ms)
+
+Cannot shot because TargetTransform is not set.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.744773 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 4469.
+Total: 3.965553 ms (FindLiveObjects: 0.353360 ms CreateObjectMapping: 0.373594 ms MarkObjects: 3.208101 ms  DeleteObjects: 0.029324 ms)
+

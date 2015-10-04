@@ -43,6 +43,7 @@ public class MenuManager : MonoBehaviour {
             Destroy(gameObject);
             return;
         }
+
     }
 
     public void Start()
@@ -111,6 +112,17 @@ public class MenuManager : MonoBehaviour {
             }
 
         }
+        if (Application.loadedLevel == 0)
+        {
+            if(CurrentMenu == pauseMenu)
+            {
+                CurrentMenu = mainMenu;
+                CurrentMenu.IsOpen = true;
+            }
+            
+        }
+
+
     }
 
 

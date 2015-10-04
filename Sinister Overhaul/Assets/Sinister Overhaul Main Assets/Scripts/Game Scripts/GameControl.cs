@@ -43,6 +43,7 @@ public class GameControl : MonoBehaviour
     public float musicVolume = 0.6f;
     public float masterSFXVolume = 0.5f;
     public bool showFPS = false;
+    public bool lastWave = false;
 
 
 
@@ -153,10 +154,21 @@ public class GameControl : MonoBehaviour
     {
         if (loading == false)
         {
-            loading = true;
-            yield return new WaitForSeconds(5.0f);
-            Application.LoadLevel(Application.loadedLevel);
+            if(lastWave == false)
+            {
+                loading = true;
+                yield return new WaitForSeconds(5.0f);
+                Application.LoadLevel(Application.loadedLevel);
+            }
+            else if(lastWave == true)
+            {
+                loading = true;
+                yield return new WaitForSeconds(5.0f);
+                Application.LoadLevel(Application.loadedLevel);
+            }
+
         }
+        
     }
     IEnumerator ReturnToMenu()
     {

@@ -32,6 +32,7 @@ public class LoadingScreen : MonoBehaviour
 	{
 		background.SetActive (true);
 		text.SetActive (true);
+        GameControl.control.lastWave = false;
         //reloads current level, in case nothing else can load.
         
         yield return new WaitForSeconds (5);
