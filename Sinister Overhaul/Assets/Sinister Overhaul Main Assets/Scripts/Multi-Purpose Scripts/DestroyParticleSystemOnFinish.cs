@@ -14,12 +14,21 @@ public class DestroyParticleSystemOnFinish : MonoBehaviour
 	private ParticleSystem ps; //set a placeholder for the particle system values
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		ps = GetComponentInChildren<ParticleSystem> (); //get particle system values
 	
 	}
-	
+	void OnEnable()
+    {
+        ps.Clear();
+        ps.Play();
+    }
+    void OnDisable()
+    {
+
+        UbhObjectPool.Instance.ReleaseGameObject(gameObject);
+    }
 	// Update is called once per frame
 	void Update () 
 	{
@@ -27,8 +36,8 @@ public class DestroyParticleSystemOnFinish : MonoBehaviour
 		{
 			if(!ps.IsAlive())	//if the particle system is not playing the animation
 			{
-				Destroy (gameObject);	//destroy particle system
-			}
+                UbhObjectPool.Instance.ReleaseGameObject(gameObject);
+            }
 		}
 	
 	}

@@ -18,15 +18,14 @@ public class Boundary
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject shield;
-
+    private GameObject shield;
+    private GameObject hitBox;
     public float maxSpeed = 5;          //Max speed in any direction the ship can move.
     public float maxSpeedAiming = 2.5f; //Max speed in any direction the ship can move while aiming.
     private float speed;                //variable to hold speed based upon aiming or not.
     public Boundary boundary;           //create a boundary object
 
-    private Vector2 tempVelocity;
-    private bool isSleeping = false;
+
     Animator animator;                  //Get animator access
     public bool aiming { get { return setAiming; } }    //public for other scripts to use	
     private bool setAiming;             //bool to hold if aiming for using in above public bool aiming
@@ -34,6 +33,8 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        shield = transform.Find("Shield Parent").gameObject;
+        hitBox = transform.Find("Hitbox").gameObject;
         animator = GetComponent<Animator>(); //setup aiming based upon animator for Player
         speed = maxSpeed;                   //Set speed to maxspeed to prevent errors of null values
         setAiming = false;                  //set bool to false to pevent errors of null values.
@@ -72,6 +73,10 @@ public class PlayerController : MonoBehaviour
             GameControl.control.ShieldTimer();
         }
 
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            hitBox.SetActive(!hitBox.activeSelf);
+        }
         float moveHorizontal = Input.GetAxis("Horizontal");     //get horizontal input
         float moveVertical = Input.GetAxis("Vertical");     //get vertical input
 

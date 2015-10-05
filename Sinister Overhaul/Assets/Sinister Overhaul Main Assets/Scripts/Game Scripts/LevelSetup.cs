@@ -19,7 +19,9 @@ public class LevelSetup : MonoBehaviour
 {
 	public static LevelSetup ls;
 	public GameObject player 		= null;
-	public GameObject[] enemySpawnerArr = null;
+    public GameObject deathBarrier;
+    public GameObject[] enemySpawnerArr = null;
+
     // public Component[] camera = null;
    // public GameObject[] backgroundArr = null;
     //public GameObject lighting = null;
@@ -44,6 +46,7 @@ public class LevelSetup : MonoBehaviour
 		}
 		enemySpawnerArr [0] = null;
 		SpawnPlayer ();
+        SpawnDeathBarrier();
 		SpawnEnemySpawner ();
         SetupMusic();
 		//SpawnCamera ();
@@ -72,7 +75,10 @@ public class LevelSetup : MonoBehaviour
 		}
 	
 	}
-
+    void SpawnDeathBarrier()
+    {
+        Instantiate(deathBarrier, transform.position, Quaternion.identity);
+    }
     void SetupMusic()
     {
         if(MusicManager.musicControl != null)

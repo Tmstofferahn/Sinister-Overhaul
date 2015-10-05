@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DeathBarrier.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Art Assets\ParticleSystems\Scripts\AfterburnerPhysicsForce.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Art Assets\ParticleSystems\Scripts\ExplosionFireAndDebris.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Art Assets\ParticleSystems\Scripts\ExplosionPhysicsForce.cs" />
@@ -117,6 +118,8 @@
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Barrels\PlayerBarrelSpriteMovement.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Barrels\PlayerShoot.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Barrels\PlayerShootSineWave.cs" />
+    <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Barrels\PlayerShootSineWaveUBH.cs" />
+    <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Barrels\PlayerShootUBH.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Bullets\PlayerBulletMovement.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Controls\PlayerController.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Misc\PlayerHealth.cs" />
