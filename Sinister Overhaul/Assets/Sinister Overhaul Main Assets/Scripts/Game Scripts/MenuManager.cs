@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour {
     public Menu pauseMenu;
     private Menu CurrentMenu;
     
+    private float oldTimeScale;
 
     public GameObject FPS;
     private bool cameraLoaded = false;
@@ -105,14 +106,17 @@ public class MenuManager : MonoBehaviour {
 
         resolutionDropdown.onValueChanged.AddListener
             (delegate {
+                oldTimeScale = Time.timeScale;
                 Screen.SetResolution(resolutions[resolutionDropdown.value].width,
                 resolutions[resolutionDropdown.value].height, Screen.fullScreen);
+                Time.timeScale = 1.0f;
+                StartCoroutine(RefreshScreen());
 
             });
 
         resolutionDropdown.value = resolutions.Length - 1;
         
-        GameObject HUD = GameObject.Find("Hud Backgrounds");
+
     }
 
 
@@ -154,6 +158,15 @@ public class MenuManager : MonoBehaviour {
 
     //-----------------------------------------------------------------------------
     //Menu calls
+    IEnumerator RefreshScreen()
+    {
+        
+        yield return new WaitForEndOfFrame();
+        Time.timeScale = 1.0f;
+        yield return new WaitForSeconds(0.25f);
+        Time.timeScale = oldTimeScale;
+
+    }
     void ToggleHUD(bool isActive)
     {
        
