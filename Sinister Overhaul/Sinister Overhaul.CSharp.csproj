@@ -130,6 +130,7 @@
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Testing.WIP\PlayerBarrelSineWave.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Testing.WIP\PlayerBulletMovementSineWave.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Testing.WIP\PlayerShootCosWave.cs" />
+    <Compile Include="Assets\SpawnSuperLazer.cs" />
     <Compile Include="Assets\UniBulletHell\Example\Script\UbhAutoDespawnParticle.cs" />
     <Compile Include="Assets\UniBulletHell\Example\Script\UbhAutoScaleGUIText.cs" />
     <Compile Include="Assets\UniBulletHell\Example\Script\UbhBackground.cs" />

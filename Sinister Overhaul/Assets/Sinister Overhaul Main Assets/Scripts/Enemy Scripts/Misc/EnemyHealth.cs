@@ -75,6 +75,10 @@ public class EnemyHealth : MonoBehaviour
                         Instantiate(deathEffect, col.transform.position, Quaternion.identity);
                     }
 
+                    if (GameControl.control.lastWave == true)
+                    {
+                        GameControl.control.playerInvulnerable = true;
+                    }
                     Destroy(gameObject); //destroy the enemy object
 
                 }

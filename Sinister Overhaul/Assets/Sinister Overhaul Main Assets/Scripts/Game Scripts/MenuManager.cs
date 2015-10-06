@@ -5,11 +5,15 @@ using System.Collections;
 public class MenuManager : MonoBehaviour {
     public static MenuManager guiControl;
 
+    public Canvas canvas;
     public Menu mainMenu;
     public Menu pauseMenu;
     private Menu CurrentMenu;
+    
 
     public GameObject FPS;
+    private bool cameraLoaded = false;
+    public GameObject HUD;
 
     //-------------------------------------------
     //Game Settings Variables
@@ -31,11 +35,26 @@ public class MenuManager : MonoBehaviour {
     public Dropdown resolutionDropdown;
     public Toggle fullScreenToggle;
 
+    void OnLevelWasLoaded()
+    {
+        cameraLoaded = false;
+        if (Application.loadedLevel != 0)
+        {
+            ToggleHUD(true);
+        }
+        if (Application.loadedLevel == 0)
+        {
+            ToggleHUD(false);
+        }
+    }
     void Awake()
     {
+
+
         if (guiControl == null)
         {
             guiControl = this;
+            
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -43,6 +62,8 @@ public class MenuManager : MonoBehaviour {
             Destroy(gameObject);
             return;
         }
+
+        
 
     }
 
@@ -61,6 +82,7 @@ public class MenuManager : MonoBehaviour {
         }
         ShowMenu(CurrentMenu);
 
+        
         difficulty = GameObject.Find("Difficulty Slider").GetComponent<Slider>();
         masterVolume = GameObject.Find("Master Volume Slider").GetComponent<Slider>();
         musicVolume = GameObject.Find("Music Volume Slider").GetComponent<Slider>();
@@ -90,12 +112,15 @@ public class MenuManager : MonoBehaviour {
 
         resolutionDropdown.value = resolutions.Length - 1;
         
+        GameObject HUD = GameObject.Find("Hud Backgrounds");
     }
+
 
 
     void Update()
     {
-
+        SetCamera();
+        
         if (Application.loadedLevel != 0)
         {
             if (GameControl.control != null)
@@ -129,6 +154,20 @@ public class MenuManager : MonoBehaviour {
 
     //-----------------------------------------------------------------------------
     //Menu calls
+    void ToggleHUD(bool isActive)
+    {
+       
+        HUD.SetActive(isActive);
+    }
+    void SetCamera()
+    {
+        if(cameraLoaded == false)
+        {
+            canvas.worldCamera = Camera.main;
+            cameraLoaded = true;
+        }
+
+    }
     public void ToggleFPS()
     {
         FPS.SetActive(!FPS.activeSelf);

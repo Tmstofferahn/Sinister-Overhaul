@@ -27,15 +27,14 @@ public class PlayerHealth : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		GameControl.control.currentHealth = GameControl.control.initialHealth;
 		mat = GetComponentInChildren<MeshRenderer> ().material;
-
+        GameControl.control.playerInvulnerable = false;
 	}
 
 	void OnTriggerEnter2D(Collider2D col) //Ensure that triggers are set to 2D
 	{
        
-		if (invulnerable == false && GameControl.control.loadNextLevel == false && shield.activeSelf == false) 
+		if (invulnerable == false && GameControl.control.loadNextLevel == false && shield.activeSelf == false && GameControl.control.playerInvulnerable == false) 
 		{
 
 			GameControl.control.currentHealth--;

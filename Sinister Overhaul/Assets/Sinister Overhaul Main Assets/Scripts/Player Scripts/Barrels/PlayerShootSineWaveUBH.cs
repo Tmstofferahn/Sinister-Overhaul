@@ -60,12 +60,17 @@ public class PlayerShootSineWaveUBH : MonoBehaviour
 
         pos = transform.position;                                   //Get position of barrel.
         pos.x += Mathf.Sin(moveTime * frequency) * amplitudeFinal;  //apply sine wave movement in X coordinate for the initial position of the bullet
-        if (readyToShoot && GameControl.control.isPaused == false && GameControl.control.loadNextLevel == false)
+        if (Input.GetButton("Fire1"))
         {
-            UbhObjectPool.Instance.GetGameObject(bullet, pos, transform.rotation);
-            readyToShoot = false;                                   //player just shot, can no longer shoot.
-            Invoke("ResetReadyToShoot", shotDelay);             //calls ResetReadyToShoot to set readyToShoot to true after shotDelay timer.
+
+            if (readyToShoot && GameControl.control.isPaused == false && GameControl.control.loadNextLevel == false)
+            {
+                UbhObjectPool.Instance.GetGameObject(bullet, pos, transform.rotation);
+                readyToShoot = false;                                   //player just shot, can no longer shoot.
+                Invoke("ResetReadyToShoot", shotDelay);             //calls ResetReadyToShoot to set readyToShoot to true after shotDelay timer.
+            }
         }
+
 
     }//end of Update()
 

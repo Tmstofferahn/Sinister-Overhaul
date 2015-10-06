@@ -24,15 +24,19 @@ public class PlayerShootUBH : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bullet != null)
+        if (Input.GetButton("Fire1"))
         {
-            if (readyToShoot == true && GameControl.control.isPaused == false && GameControl.control.loadNextLevel == false)
+            if (bullet != null)
             {
-                UbhObjectPool.Instance.GetGameObject(bullet, transform.position, transform.rotation);
-                readyToShoot = false;
-                Invoke("ResetReadyToShoot", shotDelay);
+                if (readyToShoot == true && GameControl.control.isPaused == false && GameControl.control.loadNextLevel == false)
+                {
+                    UbhObjectPool.Instance.GetGameObject(bullet, transform.position, transform.rotation);
+                    readyToShoot = false;
+                    Invoke("ResetReadyToShoot", shotDelay);
 
+                }
             }
+
         }
 
 

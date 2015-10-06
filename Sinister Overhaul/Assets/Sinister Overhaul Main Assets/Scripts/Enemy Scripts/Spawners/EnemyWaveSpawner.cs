@@ -120,7 +120,6 @@ public class EnemyWaveSpawner : MonoBehaviour
                     {
                         yield return 0;
                     }
-
                     yield return new WaitForSeconds(5.0f);
                     GameControl.control.loadNextLevel = true;
 

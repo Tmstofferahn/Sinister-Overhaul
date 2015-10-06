@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
 
         //if the player is pressing right mouse or left alt then they are aiming.
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Aim"))
         {
             animator.SetBool("Aiming", true);   //change animation parameter Aiming to true
             setAiming = true;                   //change public to false
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
             speed = maxSpeed;                   //set new speed
         }
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Shield"))
         {
             if (GameControl.control.shieldReady == true)
             {
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
             GameControl.control.ShieldTimer();
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetButtonDown("Hitbox Toggle"))
         {
             hitBox.SetActive(!hitBox.activeSelf);
         }

@@ -44,6 +44,7 @@ public class GameControl : MonoBehaviour
     public float masterSFXVolume = 0.5f;
     public bool showFPS = false;
     public bool lastWave = false;
+    public bool playerInvulnerable = false;
 
 
 
