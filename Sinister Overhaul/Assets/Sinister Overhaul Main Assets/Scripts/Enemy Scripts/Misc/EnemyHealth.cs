@@ -51,6 +51,11 @@ public class EnemyHealth : MonoBehaviour
 
             UbhSimpleBullet bullet = col.transform.parent.GetComponent<UbhSimpleBullet>();
             UbhObjectPool.Instance.ReleaseGameObject(col.transform.parent.gameObject);
+            if(GameControl.control.shieldReady == false && (GameControl.control.shieldTimeRemaining / GameControl.control.shieldWaitTime) <= 0)
+            {
+                GameControl.control.shieldEnergyCurrent++;
+            }
+
 
             if (destructible == true)
             {

@@ -33,11 +33,13 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
         shield = transform.Find("Shield Parent").gameObject;
         hitBox = transform.Find("Hitbox").gameObject;
         animator = GetComponent<Animator>(); //setup aiming based upon animator for Player
         speed = maxSpeed;                   //Set speed to maxspeed to prevent errors of null values
         setAiming = false;                  //set bool to false to pevent errors of null values.
+        GameControl.control.shieldEnergyCurrent = GameControl.control.shieldEnergyFull;
 
     }//end of Start()
 
@@ -59,19 +61,30 @@ public class PlayerController : MonoBehaviour
             setAiming = false;                  //change public to false
             speed = maxSpeed;                   //set new speed
         }
-
-        if (Input.GetButtonDown("Shield"))
+        if(Input.GetButtonDown("Shield"))
         {
-            if (GameControl.control.shieldReady == true)
+            if(GameControl.control.shieldReady == true)
             {
-                GameControl.control.shieldReady = false;
                 shield.SetActive(true);
+                GameControl.control.shieldReady = false;
+                GameControl.control.shieldEnergyCurrent = 0.0f;
             }
         }
-        if (GameControl.control.shieldReady == false)
-        {
-            GameControl.control.ShieldTimer();
-        }
+        GameControl.control.ShieldEnergy();
+        GameControl.control.ShieldTimer();
+
+        //if (Input.GetButtonDown("Shield"))
+        //{
+        //    if (GameControl.control.shieldReady == true)
+        //    {
+        //        GameControl.control.shieldReady = false;
+        //        shield.SetActive(true);
+        //    }
+        //}
+        //if (GameControl.control.shieldReady == false)
+        //{
+        //    GameControl.control.ShieldTimer();
+        //}
 
         if(Input.GetButtonDown("Hitbox Toggle"))
         {

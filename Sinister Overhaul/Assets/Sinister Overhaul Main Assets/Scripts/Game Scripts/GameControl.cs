@@ -24,27 +24,30 @@ using System.IO;
 public class GameControl : MonoBehaviour
 {
 
+
     public static GameControl control;
-    public float shieldWaitTime = 60.0f;
-    private float shieldTimeRemaining = 0.0f;
-    public bool shieldReady = true;
+    public float shieldWaitTime = 5.0f;
+    [HideInInspector]  public float shieldTimeRemaining = 0.0f;
+    public float shieldEnergyFull = 200.0f;
+    [HideInInspector]  public float shieldEnergyCurrent = 0.0f;
+    [HideInInspector]  public bool shieldReady = true;
     public int initialHealth = 3;
-    public int currentHealth = 0;
+    [HideInInspector]  public int currentHealth = 0;
     public int initialLives = 3;
-    public int currentLives = 0;
+    [HideInInspector]  public int currentLives = 0;
     public int score = 0;
     public int highScore = 0;
     private bool loading = false;
-    public bool loadNextLevel = false;
-    public bool loadMainMenu = false;
-    public bool isPaused = false;
-    public float difficultyFactor = 1.0f;
+    [HideInInspector]  public bool loadNextLevel = false;
+    [HideInInspector]  public bool loadMainMenu = false;
+    [HideInInspector]  public bool isPaused = false;
+    [HideInInspector]  public float difficultyFactor = 1.0f;
     public float masterVolume = 0.5f;
     public float musicVolume = 0.6f;
     public float masterSFXVolume = 0.5f;
-    public bool showFPS = false;
-    public bool lastWave = false;
-    public bool playerInvulnerable = false;
+    [HideInInspector]  public bool showFPS = false;
+    [HideInInspector]  public bool lastWave = false;
+    [HideInInspector]  public bool playerInvulnerable = false;
 
 
 
@@ -192,6 +195,24 @@ public class GameControl : MonoBehaviour
     //		}
     //	}
 
+    public void ShieldEnergy()
+    {
+        if(shieldTimeRemaining <= 0)
+        {
+            if (shieldEnergyCurrent >= shieldEnergyFull)
+            {
+                shieldEnergyCurrent = shieldEnergyFull;
+                shieldTimeRemaining = shieldWaitTime;
+                shieldReady = true;
+            }
+            else if (shieldEnergyCurrent <= shieldEnergyFull)
+            {
+                shieldReady = false;
+            }
+        }
+
+
+    }
     public void ShieldTimer()
     {
         if (isPaused == false)
@@ -201,15 +222,17 @@ public class GameControl : MonoBehaviour
                 shieldTimeRemaining = shieldWaitTime;
                 shieldReady = true;
             }
-
-            shieldTimeRemaining -= Time.deltaTime;
-
-            if (shieldTimeRemaining <= 0)
+            if(shieldReady == false)
             {
-                shieldReady = true;
-                shieldTimeRemaining = shieldWaitTime;
+                shieldTimeRemaining -= Time.deltaTime;
 
+                if (shieldTimeRemaining <= 0)
+                {
+                    shieldTimeRemaining = 0;
+
+                }
             }
+
         }
 
 
