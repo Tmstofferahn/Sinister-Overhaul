@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+        GameControl.control.currentHealth = GameControl.control.initialHealth;
 		mat = GetComponentInChildren<MeshRenderer> ().material;
         GameControl.control.playerInvulnerable = false;
 	}

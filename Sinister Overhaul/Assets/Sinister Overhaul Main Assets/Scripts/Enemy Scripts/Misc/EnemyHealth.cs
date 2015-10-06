@@ -38,7 +38,6 @@ public class EnemyHealth : MonoBehaviour
     {
         SetupMaterial();
 
-        scoreOnHit = Mathf.RoundToInt(scoreOnHit * GameControl.control.difficultyFactor);
         scoreOnDeath = Mathf.RoundToInt(scoreOnDeath * GameControl.control.difficultyFactor);
         initialHealth = Mathf.RoundToInt(initialHealth * GameControl.control.difficultyFactor);
         currentHealth = initialHealth;                  //Set current hp to what the initial hp is.
@@ -77,7 +76,7 @@ public class EnemyHealth : MonoBehaviour
                     GameControl.control.score += scoreOnDeath;
                     if (deathEffect != null) //if there is an onDeath particle effect available, create it at transform of enemy.
                     {
-                        Instantiate(deathEffect, col.transform.position, Quaternion.identity);
+                        UbhObjectPool.Instance.GetGameObject(deathEffect, col.transform.position, Quaternion.identity);
                     }
 
                     if (GameControl.control.lastWave == true)
