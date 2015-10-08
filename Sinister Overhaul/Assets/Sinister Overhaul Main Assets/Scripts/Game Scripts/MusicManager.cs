@@ -70,9 +70,12 @@ public class MusicManager : MonoBehaviour {
         {
             if (musicControl.musicSource != null)
             {
-                musicControl.musicSource.Stop();
-                musicControl.musicSource.clip = musicControl.bossMusic[Application.loadedLevel];
-                musicControl.musicSource.Play();
+                if (musicControl.bossMusic[Application.loadedLevel] != null)
+                {
+                    musicControl.musicSource.Stop();
+                    musicControl.musicSource.clip = musicControl.bossMusic[Application.loadedLevel];
+                    musicControl.musicSource.Play();
+                }
             }
         }
         else

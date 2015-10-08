@@ -49,15 +49,16 @@ public class EnemyHealth : MonoBehaviour
         {
 
             UbhSimpleBullet bullet = col.transform.parent.GetComponent<UbhSimpleBullet>();
-            UbhObjectPool.Instance.ReleaseGameObject(col.transform.parent.gameObject);
-            if(GameControl.control.shieldReady == false && (GameControl.control.shieldTimeRemaining / GameControl.control.shieldWaitTime) <= 0)
-            {
-                GameControl.control.shieldEnergyCurrent++;
-            }
+            UbhObjectPool.Instance.ReleaseGameObject(bullet.gameObject);
+
 
 
             if (destructible == true)
             {
+                if (GameControl.control.shieldReady == false && (GameControl.control.shieldTimeRemaining / GameControl.control.shieldWaitTime) <= 0)
+                {
+                    GameControl.control.shieldEnergyCurrent++;
+                }
                 currentHealth -= bullet._Power; ; //on hit, reduce hp by 1.
                 GameControl.control.score += scoreOnHit;
                 if (isFlashing == false)

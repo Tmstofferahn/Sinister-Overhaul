@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
             setAiming = true;                   //change public to false
             speed = maxSpeedAiming;             //set new speed
         }
-        else if (Input.GetButtonUp("Fire1")) //on release, set aiming to false
+        else if (Input.GetButtonUp("Aim")) //on release, set aiming to false
         {
             animator.SetBool("Aiming", false); //change animation parameter Aiming to false.
             setAiming = false;                  //change public to false

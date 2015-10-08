@@ -5,18 +5,25 @@ using System.Collections;
 public class ShieldProgress : MonoBehaviour {
 
     private Image shieldProgress;
+    private bool flashing = true;
     // Use this for initialization
     void Start () {
        shieldProgress = GetComponent<Image>();
-        
-	
-	}
+        StartCoroutine(FlashColors());
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
         if (GameControl.control.shieldReady == false) 
         {
-            shieldProgress.color = Color.white;
+            flashing = false;
+            if(shieldProgress.color != Color.white)
+            {
+                shieldProgress.color = Color.white;
+            }
+
             if((GameControl.control.shieldTimeRemaining / GameControl.control.shieldWaitTime) <= 0)
             {
                 shieldProgress.fillAmount = GameControl.control.shieldEnergyCurrent / GameControl.control.shieldEnergyFull;
@@ -29,10 +36,32 @@ public class ShieldProgress : MonoBehaviour {
         }
         if(GameControl.control.shieldReady == true)
         {
-            shieldProgress.fillAmount = 1;
-            shieldProgress.color = Color.green;
+            flashing = true;
         }
             
 	
 	}
+
+    IEnumerator FlashColors()
+    {
+        while(true)
+        {
+            if (flashing == true)
+            { 
+                if(shieldProgress.color == Color.white | shieldProgress.color == Color.red)
+                {
+                    shieldProgress.color = Color.green;
+                }
+                else if (shieldProgress.color == Color.green)
+                {
+                    shieldProgress.color = Color.red;
+                }
+               
+
+            }
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+    }
 }
