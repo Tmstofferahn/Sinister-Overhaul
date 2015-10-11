@@ -27,7 +27,15 @@ public class MusicManager : MonoBehaviour {
 
     void Start()
     {
-        PlayMenuMusic();
+        if(Application.loadedLevel != 0)
+        {
+            PlayGameMusic();
+        }
+        else if(Application.loadedLevel == 0)
+        {
+            PlayMenuMusic();
+        }
+
     }
 
     static public void PlayMenuMusic()

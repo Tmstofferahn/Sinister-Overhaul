@@ -25,6 +25,10 @@ public class PlayerShieldHealth : MonoBehaviour
         //    currentHealth = health;
         //    gameObject.SetActive(false);
         //}
+        if (col.transform.gameObject.tag == "EnemyBullet")
+        {
+            UbhObjectPool.Instance.ReleaseGameObject(col.transform.parent.gameObject);
+        }
 
     }
 

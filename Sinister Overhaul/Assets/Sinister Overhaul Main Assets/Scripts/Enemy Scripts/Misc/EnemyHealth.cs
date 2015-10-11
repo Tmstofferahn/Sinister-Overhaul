@@ -36,18 +36,22 @@ public class EnemyHealth : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        SetupMaterial();
 
-        scoreOnDeath = Mathf.RoundToInt(scoreOnDeath * GameControl.control.difficultyFactor);
-        initialHealth = Mathf.RoundToInt(initialHealth * GameControl.control.difficultyFactor);
-        currentHealth = initialHealth;                  //Set current hp to what the initial hp is.
+        SetUp();
     }
-
+    void OnEnable()
+    {
+        if(Application.loadedLevel >= 1 && Application.loadedLevel < Application.levelCount -1)
+        {
+            SetUp();
+        }
+        
+    }
     void OnTriggerEnter2D(Collider2D col) //Ensure that triggers are set to 2D
     {
         if (col.transform.gameObject.tag == "PlayerBullet")
         {
-
+            
             UbhSimpleBullet bullet = col.transform.parent.GetComponent<UbhSimpleBullet>();
             UbhObjectPool.Instance.ReleaseGameObject(bullet.gameObject);
 
@@ -74,17 +78,21 @@ public class EnemyHealth : MonoBehaviour
 
                 if (currentHealth <= 0) //when the enemy's health is zero or less
                 {
+                    render.material.color = normalColor;
                     GameControl.control.score += scoreOnDeath;
                     if (deathEffect != null) //if there is an onDeath particle effect available, create it at transform of enemy.
                     {
                         UbhObjectPool.Instance.GetGameObject(deathEffect, col.transform.position, Quaternion.identity);
                     }
-
-                    if (GameControl.control.lastWave == true)
+                    if(transform.parent.parent.gameObject.tag == "EnemyBullet")
                     {
-                        GameControl.control.playerInvulnerable = true;
+                        UbhObjectPool.Instance.ReleaseGameObject(transform.parent.parent.gameObject);
                     }
-                    Destroy(gameObject); //destroy the enemy object
+                    else
+                    {
+                        Destroy(gameObject); //destroy the enemy object
+                    }
+
 
                 }
             }
@@ -92,6 +100,17 @@ public class EnemyHealth : MonoBehaviour
 
 
 
+
+
+    }
+    void SetUp()
+    {
+
+        SetupMaterial();
+
+        scoreOnDeath = Mathf.RoundToInt(scoreOnDeath * GameControl.control.difficultyFactor);
+        initialHealth = Mathf.RoundToInt(initialHealth * GameControl.control.difficultyFactor);
+        currentHealth = initialHealth;                  //Set current hp to what the initial hp is.
 
 
     }

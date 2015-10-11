@@ -46,7 +46,7 @@ public class GameControl : MonoBehaviour
     public float musicVolume = 0.6f;
     public float masterSFXVolume = 0.5f;
     [HideInInspector]  public bool showFPS = false;
-    [HideInInspector]  public bool lastWave = false;
+    public bool lastWave = false;
     [HideInInspector]  public bool playerInvulnerable = false;
 
 
@@ -240,32 +240,32 @@ public class GameControl : MonoBehaviour
 	void OnGUI()
 	{
 		difficultyFactor = (float)Math.Round (difficultyFactor * 10.0f) / 10.0f;
-        float tempShieldTime = (float)Math.Round(shieldTimeRemaining * 10.0f) / 10.0f;
-        if (Application.loadedLevel > 0)
-		{
-			GUI.Label (new Rect (10, 10, 100, 30), "Health: " + currentHealth);
-			GUI.Label (new Rect (10, 40, 100, 30), "Lives: " + currentLives);
+      //  float tempShieldTime = (float)Math.Round(shieldTimeRemaining * 10.0f) / 10.0f;
+  //      if (Application.loadedLevel > 0)
+		//{
+		//	GUI.Label (new Rect (10, 10, 100, 30), "Health: " + currentHealth);
+		//	GUI.Label (new Rect (10, 40, 100, 30), "Lives: " + currentLives);
 
-			GUI.Label (new Rect (Screen.width - 100, 10, 100, 50), "Score: \n" + score);
-			GUI.Label (new Rect (Screen.width / 2 - 50, 10, 100, 50), "Highscore: \n" + highScore);
+  //          GUI.Label(new Rect(Screen.width - 100, 10, 100, 50), "Score: \n" + score);
+  //          GUI.Label(new Rect(Screen.width / 2 - 50, 10, 100, 50), "Highscore: \n" + highScore);
 
-            if (shieldReady == false)
-            {
-                GUI.Label(new Rect(Screen.width / 2 - 50, 40, 100, 50), "Time on Shield: \n" + tempShieldTime);
-            }
-            if (shieldReady == true)
-            {
-                GUI.Label(new Rect(Screen.width / 2 - 50, 40, 100, 50), "Time on Shield: READY");
-            }
-
-
+  //          if (shieldReady == false)
+  //          {
+  //              GUI.Label(new Rect(Screen.width / 2 - 50, 40, 100, 50), "Time on Shield: \n" + tempShieldTime);
+  //          }
+  //          if (shieldReady == true)
+  //          {
+  //              GUI.Label(new Rect(Screen.width / 2 - 50, 40, 100, 50), "Time on Shield: READY");
+  //          }
 
 
 
-        }
-		GUI.Label (new Rect (Screen.width - 100, 40, 100, 50), "Current Difficulty: \n x" + difficultyFactor);
-		GUI.Label(new Rect (10, 70, 100, 30), "CurrentLevel: " + Application.loadedLevel);
-		GUI.Label(new Rect (10, 100, 100, 30), "LevelCount: " + (Application.levelCount - 1));
+
+
+  //      }
+  //      GUI.Label (new Rect (Screen.width - 100, 40, 100, 50), "Current Difficulty: \n x" + difficultyFactor);
+		//GUI.Label(new Rect (10, 70, 100, 30), "CurrentLevel: " + Application.loadedLevel);
+		//GUI.Label(new Rect (10, 100, 100, 30), "LevelCount: " + (Application.levelCount - 1));
 
 	}
 	public void Save()

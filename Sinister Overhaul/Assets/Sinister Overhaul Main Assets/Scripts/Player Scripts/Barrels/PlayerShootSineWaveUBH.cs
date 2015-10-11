@@ -20,6 +20,7 @@ public class PlayerShootSineWaveUBH : MonoBehaviour
     private PlayerController playerController;  //create instance of playerController script
     public GameObject player = null;            //Create object for the player
     public GameObject bullet = null;            //Create object for the bullet
+    public bool isReversed = false;
 
     public float shotDelay = 0.2f;              //delay inbetween bullets in seconds.
     private bool readyToShoot = true;           //value used to allow the delay.
@@ -60,6 +61,15 @@ public class PlayerShootSineWaveUBH : MonoBehaviour
 
         pos = transform.position;                                   //Get position of barrel.
         pos.x += Mathf.Sin(moveTime * frequency) * amplitudeFinal;  //apply sine wave movement in X coordinate for the initial position of the bullet
+        if (isReversed == false)
+        {
+            pos.z += Mathf.Cos(moveTime * frequency) * 0.4f;  //apply sine wave movement in X coordinate for the initial position of the bullet
+        }
+        if (isReversed == true)
+        {
+            pos.z -= Mathf.Cos(moveTime * frequency) * 0.4f;  //apply sine wave movement in X coordinate for the initial position of the bullet
+        }
+
         if (Input.GetButton("Fire1"))
         {
 
