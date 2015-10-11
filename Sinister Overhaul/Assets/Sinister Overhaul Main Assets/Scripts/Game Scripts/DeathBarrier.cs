@@ -16,10 +16,19 @@ public class DeathBarrier : MonoBehaviour {
         }
         if (col.transform.gameObject.tag == "Enemy")
         {
-            if(col.transform.parent.parent.tag == "EnemyBullet")
+            
+            if(col.transform.parent != null && col.transform.parent.parent != null)
             {
-                UbhObjectPool.Instance.ReleaseGameObject(col.transform.parent.parent.gameObject);
+                if (col.transform.parent.parent.tag == "EnemyBullet")
+                {
+                    UbhObjectPool.Instance.ReleaseGameObject(col.transform.parent.parent.gameObject);
+                }
+                else
+                {
+                    Destroy(col.transform.gameObject);
+                }
             }
+
             else
             {
                 Destroy(col.transform.gameObject);

@@ -78,15 +78,24 @@ public class EnemyHealth : MonoBehaviour
 
                 if (currentHealth <= 0) //when the enemy's health is zero or less
                 {
-                    render.material.color = normalColor;
+
                     GameControl.control.score += scoreOnDeath;
                     if (deathEffect != null) //if there is an onDeath particle effect available, create it at transform of enemy.
                     {
                         UbhObjectPool.Instance.GetGameObject(deathEffect, col.transform.position, Quaternion.identity);
                     }
-                    if(transform.parent.parent.gameObject.tag == "EnemyBullet")
+                    if(transform.parent != null && transform.parent.parent != null)
                     {
-                        UbhObjectPool.Instance.ReleaseGameObject(transform.parent.parent.gameObject);
+                        if (transform.parent.parent.gameObject.tag == "EnemyBullet")
+                        {
+                            render.material.color = normalColor;
+                            UbhObjectPool.Instance.ReleaseGameObject(transform.parent.parent.gameObject);
+                        }
+                        else
+                        {
+                            Destroy(gameObject); //destroy the enemy object
+                        }
+
                     }
                     else
                     {
