@@ -12,6 +12,8 @@ public class StatsDisplay : MonoBehaviour {
     private Text HealthText;
     private Text LivesText;
     private Text LevelText;
+    private Image powerProgress;
+    private Text powerText;
 
     // Use this for initialization
     void Start()
@@ -30,6 +32,7 @@ public class StatsDisplay : MonoBehaviour {
         HealthDisplay();
         LivesDisplay();
         LevelDisplay();
+        PowerDisplay();
 
     }
 
@@ -66,6 +69,15 @@ public class StatsDisplay : MonoBehaviour {
         {
             LevelText = transform.FindInChildren("Level").GetComponent<Text>();
         }
+        if (transform.FindInChildren("Power Progress"))
+        {
+            powerProgress = transform.FindInChildren("Power Progress").GetComponent<Image>();
+        }
+        if (transform.FindInChildren("Power Text"))
+        {
+            powerText = transform.FindInChildren("Power Text").GetComponent<Text>();
+        }
+
     }
     //----------------------------------------------------------------------------
     //Shield Progress
@@ -177,5 +189,28 @@ public class StatsDisplay : MonoBehaviour {
             string format = System.String.Format("Level:\n" + Application.loadedLevel);
             LevelText.text = format;
         }
+    }
+    //Level Display
+    void PowerDisplay()
+    {
+        if (powerProgress != null)
+        {
+            powerProgress.fillAmount = Mathf.Lerp(powerProgress.fillAmount, ((float)GameControl.control.playerUpgradeLevel / (float)GameControl.control.playerUpgradeLevelMax), Time.deltaTime * 2);
+        }
+        if (powerText != null)
+        {
+            if(GameControl.control.playerUpgradeLevel < GameControl.control.playerUpgradeLevelMax)
+            {
+                string format = System.String.Format("Power:\n" + GameControl.control.playerUpgradeLevel);
+                powerText.text = format;
+            }
+            else if(GameControl.control.playerUpgradeLevel >= GameControl.control.playerUpgradeLevelMax)
+            {
+                string format = System.String.Format("Power:\n MAX!");
+                powerText.text = format;
+            }
+        }
+
+
     }
 }
