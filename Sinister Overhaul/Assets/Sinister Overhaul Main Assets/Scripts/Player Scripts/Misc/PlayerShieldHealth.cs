@@ -6,11 +6,12 @@ public class PlayerShieldHealth : MonoBehaviour
 
     //public int health;
     //public int currentHealth;
-    public float timeAlive = 5.0f;
+    private float timeAlive = 5.0f;
 
     void Start()
     {
         //currentHealth = health;
+        timeAlive = GameControl.control.shieldTimeAlive;
     }
     void OnEnable()
     {

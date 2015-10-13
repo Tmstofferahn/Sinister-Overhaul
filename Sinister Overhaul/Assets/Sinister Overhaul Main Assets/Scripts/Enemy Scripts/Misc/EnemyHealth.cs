@@ -59,12 +59,12 @@ public class EnemyHealth : MonoBehaviour
 
             if (destructible == true)
             {
-                if (GameControl.control.shieldReady == false && (GameControl.control.shieldTimeRemaining / GameControl.control.shieldWaitTime) <= 0)
+                if (GameControl.control.shieldReady == false && (GameControl.control.shieldTimeRemaining / GameControl.control.shieldTimeAlive) <= 0)
                 {
                     GameControl.control.shieldEnergyCurrent++;
                 }
                 currentHealth -= bullet._Power; ; //on hit, reduce hp by 1.
-                GameControl.control.score += scoreOnHit;
+                GameControl.control.score += scoreOnHit * bullet._Power;
                 if (isFlashing == false)
                 {
                     StartCoroutine(FlashOnHit());

@@ -24,13 +24,13 @@ public class ShieldProgress : MonoBehaviour {
                 shieldProgress.color = Color.white;
             }
 
-            if((GameControl.control.shieldTimeRemaining / GameControl.control.shieldWaitTime) <= 0)
+            if((GameControl.control.shieldTimeRemaining / GameControl.control.shieldTimeAlive) <= 0)
             {
                 shieldProgress.fillAmount = GameControl.control.shieldEnergyCurrent / GameControl.control.shieldEnergyFull;
             }
-            else if((GameControl.control.shieldTimeRemaining / GameControl.control.shieldWaitTime) > 0)
+            else if((GameControl.control.shieldTimeRemaining / GameControl.control.shieldTimeAlive) > 0)
             {
-                shieldProgress.fillAmount = GameControl.control.shieldTimeRemaining / GameControl.control.shieldWaitTime;
+                shieldProgress.fillAmount = GameControl.control.shieldTimeRemaining / GameControl.control.shieldTimeAlive;
             }
 
         }

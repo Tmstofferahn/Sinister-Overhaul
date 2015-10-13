@@ -24,9 +24,10 @@ using System.IO;
 public class GameControl : MonoBehaviour
 {
 
-
-    public static GameControl control;
-    public float shieldWaitTime = 5.0f;
+    public int playerUpgradeLevelMax = 3;
+    [HideInInspector]  public static GameControl control;
+    public int playerUpgradeLevel = 0;
+    public float shieldTimeAlive = 5.0f;
     [HideInInspector]  public float shieldTimeRemaining = 0.0f;
     public float shieldEnergyFull = 200.0f;
     [HideInInspector]  public float shieldEnergyCurrent = 0.0f;
@@ -56,7 +57,7 @@ public class GameControl : MonoBehaviour
 
     void Awake()
     {
-        shieldTimeRemaining = shieldWaitTime;
+        shieldTimeRemaining = shieldTimeAlive;
         //load player preferences
         difficultyFactor = PlayerPrefs.GetFloat("Difficulty");
         masterVolume = PlayerPrefs.GetFloat("MasterVolume");
@@ -122,8 +123,22 @@ public class GameControl : MonoBehaviour
         {
             MenuManager.guiControl.ToggleFPS();
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (playerUpgradeLevel < playerUpgradeLevelMax)
+            {
+                playerUpgradeLevel++;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            if(playerUpgradeLevel > 0)
+            {
+                playerUpgradeLevel--;
+            }
 
-    
+        }
+
 
 
     }
@@ -202,7 +217,7 @@ public class GameControl : MonoBehaviour
             if (shieldEnergyCurrent >= shieldEnergyFull)
             {
                 shieldEnergyCurrent = shieldEnergyFull;
-                shieldTimeRemaining = shieldWaitTime;
+                shieldTimeRemaining = shieldTimeAlive;
                 shieldReady = true;
             }
             else if (shieldEnergyCurrent <= shieldEnergyFull)
@@ -219,7 +234,7 @@ public class GameControl : MonoBehaviour
         {
             if (loadNextLevel == true)
             {
-                shieldTimeRemaining = shieldWaitTime;
+                shieldTimeRemaining = shieldTimeAlive;
                 shieldReady = true;
             }
             if(shieldReady == false)

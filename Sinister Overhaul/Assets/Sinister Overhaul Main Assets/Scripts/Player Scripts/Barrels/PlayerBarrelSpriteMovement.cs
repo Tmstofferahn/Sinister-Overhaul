@@ -14,9 +14,8 @@ using System.Collections;
 public class PlayerBarrelSpriteMovement : MonoBehaviour
 {
 	// Update is called once per frame
-	private PlayerShootSineWave pssw; 	//Get script information
-    private PlayerShootSineWaveUBH psswUBH;
-	private Vector3 pos;								//Setup position to hold the position of bullet spawns
+	private PlayerShootUBH ps;   //Get script information
+    private Vector3 pos;								//Setup position to hold the position of bullet spawns
 	public GameObject barrel = null;					//Get barrel gameobject
 	public float spriteDistanceFromBullet = 0.3f;		//distance sprite will be (y coordinate) from bullets.
 
@@ -27,21 +26,13 @@ public class PlayerBarrelSpriteMovement : MonoBehaviour
 		if (barrel != null) //if no barrel object, the sprite will not do anything.
 		{
 
-            if (pssw = barrel.GetComponent<PlayerShootSineWave>())
+            if (ps = barrel.GetComponent<PlayerShootUBH>())
             {
                 //Get script info from barrel object
-                pos.x = pssw.Pos.x;                                 //get sinewave movement pos
-                pos.y = pssw.Pos.y - spriteDistanceFromBullet;      //get y coordinate +/- position behind bullets.
-                pos.z = pssw.Pos.z;
+                pos.x = ps.Pos.x;                                 //get sinewave movement pos
+                pos.y = ps.Pos.y - spriteDistanceFromBullet;      //get y coordinate +/- position behind bullets.
+                pos.z = ps.Pos.z;
                 transform.position = pos;                           //apply to transform of sprite
-            }
-            if(psswUBH = barrel.GetComponent<PlayerShootSineWaveUBH>())
-            {
-                //Get script info from barrel object
-                pos.x = psswUBH.Pos.x;                                 //get sinewave movement pos
-                pos.y = psswUBH.Pos.y - spriteDistanceFromBullet;      //get y coordinate +/- position behind bullets.
-                pos.z = psswUBH.Pos.z;
-                transform.position = pos;                           //apply to transform
             }
         									
 		}

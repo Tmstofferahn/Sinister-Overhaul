@@ -45,8 +45,9 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-
+    {
+        if (GameControl.control.isPaused == true)
+            return;
 
         //if the player is pressing right mouse or left alt then they are aiming.
         if (Input.GetButtonDown("Aim"))

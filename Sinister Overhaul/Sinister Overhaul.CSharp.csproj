@@ -117,7 +117,6 @@
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Multi-Purpose Scripts\SFXVolumeCheck.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Multi-Purpose Scripts\VisibleTest.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Barrels\PlayerBarrelSpriteMovement.cs" />
-    <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Barrels\PlayerShootSineWaveUBH.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Barrels\PlayerShootUBH.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Bullets\PlayerBulletMovement.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Player Scripts\Controls\PlayerController.cs" />
@@ -129,6 +128,7 @@
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Testing.WIP\PlayerBarrelSineWave.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Testing.WIP\PlayerBulletMovementSineWave.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Testing.WIP\PlayerShootCosWave.cs" />
+    <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Testing.WIP\PlayerShootSineWaveUBH.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Unused\PlayerShoot.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Unused\PlayerShootSineWave.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Unused\ScoreDisplay.cs" />
