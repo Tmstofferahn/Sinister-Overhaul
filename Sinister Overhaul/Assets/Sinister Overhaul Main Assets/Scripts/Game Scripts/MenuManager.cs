@@ -5,6 +5,8 @@ using System.Collections;
 public class MenuManager : MonoBehaviour {
     public static MenuManager guiControl;
 
+    public AudioSource audio;
+    public AudioClip clickSound;
     public Canvas canvas;
     public Menu mainMenu;
     public Menu pauseMenu;
@@ -81,7 +83,7 @@ public class MenuManager : MonoBehaviour {
                 CurrentMenu = pauseMenu;
             }
         }
-        ShowMenu(CurrentMenu);
+        ShowMenuNoClick(CurrentMenu);
 
         
         difficulty = GameObject.Find("Difficulty Slider").GetComponent<Slider>();
@@ -188,6 +190,7 @@ public class MenuManager : MonoBehaviour {
 
     public void ReturnToInitial()
     {
+        audio.PlayOneShot(clickSound);
         CurrentMenu.IsOpen = false;
         if (Application.loadedLevel == 0)
         {
@@ -200,8 +203,18 @@ public class MenuManager : MonoBehaviour {
 
         CurrentMenu.IsOpen = true;
     }
+    public void ShowMenuNoClick(Menu menu)
+    {
+        if (CurrentMenu != null)
+        {
+            CurrentMenu.IsOpen = false;
+        }
+        CurrentMenu = menu;
+        CurrentMenu.IsOpen = true;
+    }
     public void ShowMenu(Menu menu)
     {
+        audio.PlayOneShot(clickSound);
         if (CurrentMenu != null)
         {
             CurrentMenu.IsOpen = false;
@@ -212,20 +225,24 @@ public class MenuManager : MonoBehaviour {
 
     public void PlayGame()
     {
+        audio.PlayOneShot(clickSound);
         GameControl.control.PlayerSetup();
         GameControl.control.loadNextLevel = true;
     }
     public void Quit()
     {
+        audio.PlayOneShot(clickSound);
         GameControl.control.Save();
         Application.Quit();
     }
     public void Resume()
     {
+        audio.PlayOneShot(clickSound);
         GameControl.control.Pause();
     }
     public void ReturnToMenu()
     {
+        audio.PlayOneShot(clickSound);
         GameControl.control.Save();
         GameControl.control.PlayerSetup();
         GameControl.control.Pause();

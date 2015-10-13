@@ -14,6 +14,8 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public AudioSource audio;
+    public AudioClip onPickupSFX;
     public GameObject shield;
 	public float invulnerableLength = 3.0f;
 	private bool invulnerable = false;
@@ -60,6 +62,7 @@ public class PlayerHealth : MonoBehaviour
         }
         if(col.transform.gameObject.tag == "Pickup")
         {
+            audio.PlayOneShot(onPickupSFX);
             UbhObjectPool.Instance.ReleaseGameObject(col.transform.gameObject);
             if (GameControl.control.playerUpgradeLevel < GameControl.control.playerUpgradeLevelMax)
             {

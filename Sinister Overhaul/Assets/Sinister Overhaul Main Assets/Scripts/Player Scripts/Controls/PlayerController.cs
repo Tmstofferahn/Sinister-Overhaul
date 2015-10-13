@@ -18,6 +18,9 @@ public class Boundary
 
 public class PlayerController : MonoBehaviour
 {
+    private AudioSource audio;
+    public AudioClip shieldActivatedSFX;
+    public AudioClip shieldNotReadySFX;
     private GameObject shield;
     private GameObject hitBox;
     public float maxSpeed = 5;          //Max speed in any direction the ship can move.
@@ -33,7 +36,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        audio = gameObject.GetComponent<AudioSource>();
         shield = transform.Find("Shield Parent").gameObject;
         hitBox = transform.Find("Hitbox").gameObject;
         animator = GetComponent<Animator>(); //setup aiming based upon animator for Player
@@ -66,9 +69,14 @@ public class PlayerController : MonoBehaviour
         {
             if(GameControl.control.shieldReady == true)
             {
+                audio.PlayOneShot(shieldActivatedSFX);
                 shield.SetActive(true);
                 GameControl.control.shieldReady = false;
                 GameControl.control.shieldEnergyCurrent = 0.0f;
+            }
+            else if(GameControl.control.shieldReady == false)
+            {
+                audio.PlayOneShot(shieldNotReadySFX);
             }
         }
         GameControl.control.ShieldEnergy();

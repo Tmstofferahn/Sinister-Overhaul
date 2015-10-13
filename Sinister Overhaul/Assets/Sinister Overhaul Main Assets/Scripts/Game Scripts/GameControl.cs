@@ -23,7 +23,7 @@ using System.IO;
 
 public class GameControl : MonoBehaviour
 {
-    public int totalBulletHits = 0;
+    [HideInInspector]  public int totalBulletHits = 0;
     public int playerUpgradeLevelMax = 3;
     [HideInInspector]  public static GameControl control;
     public int playerUpgradeLevel = 0;

@@ -23,6 +23,9 @@ public enum ShootPattern //setup easy selection for enemies
 
 public class PlayerShootUBH : MonoBehaviour
 {
+
+    public AudioSource audio;
+    public AudioClip shootingSFX;
     public ShootPattern chooseShot;
     public GameObject[] bulletUpgrade;
     public float shotDelay = 0.2f;
@@ -48,11 +51,19 @@ public class PlayerShootUBH : MonoBehaviour
     void Update()
     {
         Shoot();
-
+        
 
 
     }//end of Update()
 
+    void PlayShotSound()
+    {
+        //if(GameControl.control.playerUpgradeLevel == 0 | GameControl.control.playerUpgradeLevel == 1)
+        //{
+        //    audio.PlayOneShot(shootingSFX);
+        //}
+        audio.PlayOneShot(shootingSFX);
+    }
     void Shoot()
     {
         switch(chooseShot)
@@ -75,7 +86,7 @@ public class PlayerShootUBH : MonoBehaviour
                                     {
                                         UbhObjectPool.Instance.GetGameObject(bulletUpgrade[1], transform.position, transform.rotation);
                                     }
-
+                                    PlayShotSound();
                                     readyToShoot = false;
                                     Invoke("ResetReadyToShoot", shotDelay);
                                 }
@@ -177,10 +188,11 @@ public class PlayerShootUBH : MonoBehaviour
                                     if (GameControl.control.playerUpgradeLevel >= 3)
                                     {
                                         UbhObjectPool.Instance.GetGameObject(bulletUpgrade[3], transform.position, transform.rotation);
+                                        PlayShotSound();
+                                        readyToShoot = false;
+                                        Invoke("ResetReadyToShoot", shotDelay);
                                     }
-
-                                    readyToShoot = false;
-                                    Invoke("ResetReadyToShoot", shotDelay);
+                                   
                                 }
 
 
