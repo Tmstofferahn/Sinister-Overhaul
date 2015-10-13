@@ -23,10 +23,11 @@ using System.IO;
 
 public class GameControl : MonoBehaviour
 {
-
+    public int totalBulletHits = 0;
     public int playerUpgradeLevelMax = 3;
     [HideInInspector]  public static GameControl control;
     public int playerUpgradeLevel = 0;
+    public GameObject healthPickup;
     public float shieldTimeAlive = 5.0f;
     [HideInInspector]  public float shieldTimeRemaining = 0.0f;
     public float shieldEnergyFull = 200.0f;
@@ -262,7 +263,7 @@ public class GameControl : MonoBehaviour
 		//	GUI.Label (new Rect (10, 40, 100, 30), "Lives: " + currentLives);
 
   //          GUI.Label(new Rect(Screen.width - 100, 10, 100, 50), "Score: \n" + score);
-  //          GUI.Label(new Rect(Screen.width / 2 - 50, 10, 100, 50), "Highscore: \n" + highScore);
+            GUI.Label(new Rect(Screen.width / 2 - 50, 10, 100, 50), "TotalBulletHits: \n" + totalBulletHits);
 
   //          if (shieldReady == false)
   //          {

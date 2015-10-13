@@ -104,6 +104,7 @@
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\MenuManager.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\MovingBackground.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\MusicManager.cs" />
+    <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\PickupController.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\StatsDisplay.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\VictoryManager.cs" />
     <Compile Include="Assets\Sinister Overhaul Main Assets\Scripts\Multi-Purpose Scripts\AnimationControl.cs" />

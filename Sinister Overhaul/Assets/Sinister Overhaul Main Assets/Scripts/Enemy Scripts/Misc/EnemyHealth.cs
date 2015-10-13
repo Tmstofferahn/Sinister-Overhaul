@@ -59,6 +59,41 @@ public class EnemyHealth : MonoBehaviour
 
             if (destructible == true)
             {
+                GameControl.control.totalBulletHits++;
+                int randomNumber = 0;
+                if (GameControl.control.playerUpgradeLevel < 1)
+                {
+                    randomNumber = Random.Range(1, 40);
+                }
+                else if (GameControl.control.playerUpgradeLevel == 1)
+                {
+                    randomNumber = Random.Range(1, 60);
+                }
+                else if (GameControl.control.playerUpgradeLevel == 2)
+                {
+                    randomNumber = Random.Range(1, 100);
+                }
+                else if (GameControl.control.playerUpgradeLevel >= GameControl.control.playerUpgradeLevelMax)
+                {
+                    if(GameControl.control.currentHealth == 1)
+                    {
+                        randomNumber = Random.Range(1, 1300);
+                    }
+                    else if (GameControl.control.currentHealth == 2)
+                    {
+                        randomNumber = Random.Range(1, 1600);
+                    }
+                    else if (GameControl.control.currentHealth == 3)
+                    {
+                        randomNumber = Random.Range(1, 2000);
+                    }
+                    
+                }
+
+                if (randomNumber == 1)
+                {
+                    UbhObjectPool.Instance.GetGameObject(GameControl.control.healthPickup, transform.position, Quaternion.identity);
+                }
                 if (GameControl.control.shieldReady == false && (GameControl.control.shieldTimeRemaining / GameControl.control.shieldTimeAlive) <= 0)
                 {
                     GameControl.control.shieldEnergyCurrent++;

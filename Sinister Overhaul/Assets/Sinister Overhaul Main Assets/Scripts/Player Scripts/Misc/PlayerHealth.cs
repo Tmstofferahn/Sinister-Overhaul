@@ -27,7 +27,10 @@ public class PlayerHealth : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-        GameControl.control.currentHealth = GameControl.control.initialHealth;
+        if(GameControl.control.currentHealth <=0 )
+        {
+            GameControl.control.currentHealth = GameControl.control.initialHealth;
+        }
 		mat = GetComponentInChildren<MeshRenderer> ().material;
         GameControl.control.playerInvulnerable = false;
 	}
@@ -35,23 +38,54 @@ public class PlayerHealth : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D col) //Ensure that triggers are set to 2D
 	{
        
-		if (invulnerable == false && GameControl.control.loadNextLevel == false && shield.activeSelf == false && GameControl.control.playerInvulnerable == false) 
-		{
+        if(col.transform.gameObject.tag == "Enemy" | col.transform.gameObject.tag == "EnemyBullet")
+        {
+            if (invulnerable == false && GameControl.control.loadNextLevel == false && shield.activeSelf == false && GameControl.control.playerInvulnerable == false)
+            {
 
-			GameControl.control.currentHealth--;
+                GameControl.control.currentHealth--;
 
-            Instantiate(hitEffect, transform.position, Quaternion.identity);
-			if (GameControl.control.currentHealth <= 0)
-            { 
-				GameControl.control.currentLives--;
-				Instantiate(deathEffect, transform.position, Quaternion.identity);
-				Destroy (gameObject);
+                Instantiate(hitEffect, transform.position, Quaternion.identity);
+                if (GameControl.control.currentHealth <= 0)
+                {
+                    GameControl.control.currentLives--;
+                    Instantiate(deathEffect, transform.position, Quaternion.identity);
+                    Destroy(gameObject);
 
-			}
-			invulnerable = true;
-			Invoke("ResetInvulnerable", invulnerableLength);
-			StartCoroutine(Flash (invulnerableLength, 0.0f));
-		}
+                }
+                invulnerable = true;
+                Invoke("ResetInvulnerable", invulnerableLength);
+                StartCoroutine(Flash(invulnerableLength, 0.0f));
+            }
+        }
+        if(col.transform.gameObject.tag == "Pickup")
+        {
+            UbhObjectPool.Instance.ReleaseGameObject(col.transform.gameObject);
+            if (GameControl.control.playerUpgradeLevel < GameControl.control.playerUpgradeLevelMax)
+            {
+                GameControl.control.playerUpgradeLevel++;
+                GameControl.control.score += 100;
+                return;
+            }
+            else if (GameControl.control.currentHealth < 3)
+            {
+                GameControl.control.currentHealth++;
+                GameControl.control.score += 1000;
+                return;
+            }
+            else if(GameControl.control.currentLives < 3)
+            {
+                GameControl.control.currentLives++;
+                GameControl.control.score += 2000;
+                return;
+            }
+            else
+            {
+                GameControl.control.score += 5000;
+            }
+                
+        }
+
 	}
 	void ResetInvulnerable()
 	{
