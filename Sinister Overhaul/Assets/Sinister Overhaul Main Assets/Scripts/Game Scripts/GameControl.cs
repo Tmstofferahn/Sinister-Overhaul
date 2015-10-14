@@ -263,7 +263,7 @@ public class GameControl : MonoBehaviour
 		//	GUI.Label (new Rect (10, 40, 100, 30), "Lives: " + currentLives);
 
   //          GUI.Label(new Rect(Screen.width - 100, 10, 100, 50), "Score: \n" + score);
-            GUI.Label(new Rect(Screen.width / 2 - 50, 10, 100, 50), "TotalBulletHits: \n" + totalBulletHits);
+  //          GUI.Label(new Rect(Screen.width / 2 - 50, 10, 100, 50), "TotalBulletHits: \n" + totalBulletHits);
 
   //          if (shieldReady == false)
   //          {
