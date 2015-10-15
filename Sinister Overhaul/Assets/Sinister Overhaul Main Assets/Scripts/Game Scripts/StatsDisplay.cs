@@ -176,7 +176,7 @@ public class StatsDisplay : MonoBehaviour {
     {
         if(DifficultyText != null)
         {
-            string format = System.String.Format("Difficulty:\n x" + GameControl.control.difficultyFactor);
+            string format = System.String.Format("Difficulty:\n x" + GameControl.control.difficultyFactor.ToString("F1"));
             DifficultyText.text = format;
         }
     }

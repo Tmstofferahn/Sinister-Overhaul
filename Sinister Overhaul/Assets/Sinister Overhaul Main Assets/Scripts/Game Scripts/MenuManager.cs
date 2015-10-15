@@ -5,6 +5,7 @@ using System.Collections;
 public class MenuManager : MonoBehaviour {
     public static MenuManager guiControl;
 
+
     public AudioSource audio;
     public AudioClip clickSound;
     public Canvas canvas;
@@ -21,6 +22,7 @@ public class MenuManager : MonoBehaviour {
     //-------------------------------------------
     //Game Settings Variables
     private Slider difficulty;
+    private Text difficultyText;
 
     //-------------------------------------------
     //Audio Settings Variables
@@ -87,6 +89,7 @@ public class MenuManager : MonoBehaviour {
 
         
         difficulty = GameObject.Find("Difficulty Slider").GetComponent<Slider>();
+        difficultyText = difficulty.GetComponentInChildren<Text>();
         masterVolume = GameObject.Find("Master Volume Slider").GetComponent<Slider>();
         musicVolume = GameObject.Find("Music Volume Slider").GetComponent<Slider>();
         masterSFXVolume = GameObject.Find("Master SFX Volume Slider").GetComponent<Slider>();
@@ -126,7 +129,9 @@ public class MenuManager : MonoBehaviour {
     void Update()
     {
         SetCamera();
-        
+        string format = System.String.Format("Difficulty:\n x" + GameControl.control.difficultyFactor.ToString("F1"));
+        difficultyText.text = format;
+
         if (Application.loadedLevel != 0)
         {
             if (GameControl.control != null)
@@ -257,6 +262,7 @@ public class MenuManager : MonoBehaviour {
         if (GameControl.control != null)
         {
             GameControl.control.difficultyFactor = sliderDifficulty;
+
         }
         //save preference for later
         PlayerPrefs.SetFloat("Difficulty", sliderDifficulty);
