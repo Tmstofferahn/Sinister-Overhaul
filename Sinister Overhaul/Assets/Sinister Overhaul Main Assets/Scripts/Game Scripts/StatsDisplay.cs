@@ -35,6 +35,7 @@ public class StatsDisplay : MonoBehaviour {
         PowerDisplay();
 
     }
+    
 
     //----------------------------------------------------------------------------
     //setup
@@ -104,6 +105,7 @@ public class StatsDisplay : MonoBehaviour {
         }
         if (GameControl.control.shieldReady == true)
         {
+            shieldProgress.fillAmount = 1;
             flashing = true;
         }
     }
@@ -113,6 +115,7 @@ public class StatsDisplay : MonoBehaviour {
         {
             if (flashing == true)
             {
+                
                 if (shieldProgress.color == Color.white | shieldProgress.color == Color.red)
                 {
                     shieldProgress.color = Color.green;

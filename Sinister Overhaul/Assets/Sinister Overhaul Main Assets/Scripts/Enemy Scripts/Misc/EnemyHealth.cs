@@ -77,15 +77,27 @@ public class EnemyHealth : MonoBehaviour
                 {
                     if(GameControl.control.currentHealth == 1)
                     {
-                        randomNumber = Random.Range(1, 1300);
+                        randomNumber = Random.Range(1, 1500);
                     }
                     else if (GameControl.control.currentHealth == 2)
                     {
-                        randomNumber = Random.Range(1, 1600);
+                        randomNumber = Random.Range(1, 1750);
                     }
                     else if (GameControl.control.currentHealth == 3)
                     {
-                        randomNumber = Random.Range(1, 2000);
+                        if (GameControl.control.currentLives == 1)
+                        {
+                            randomNumber = Random.Range(1, 2000);
+                        }
+                        else if (GameControl.control.currentLives == 2)
+                        {
+                            randomNumber = Random.Range(1, 2500);
+                        }
+                        else if (GameControl.control.currentLives == 3)
+                        {
+                            randomNumber = Random.Range(1, 3000);
+                        }
+
                     }
                     
                 }

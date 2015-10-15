@@ -195,6 +195,10 @@ public class MenuManager : MonoBehaviour {
 
     public void ReturnToInitial()
     {
+        if (GameControl.control.loadNextLevel == true)
+        {
+            return;
+        }
         audio.PlayOneShot(clickSound);
         CurrentMenu.IsOpen = false;
         if (Application.loadedLevel == 0)
@@ -219,6 +223,10 @@ public class MenuManager : MonoBehaviour {
     }
     public void ShowMenu(Menu menu)
     {
+        if(GameControl.control.loadNextLevel == true)
+        {
+            return;
+        }
         audio.PlayOneShot(clickSound);
         if (CurrentMenu != null)
         {
@@ -230,23 +238,39 @@ public class MenuManager : MonoBehaviour {
 
     public void PlayGame()
     {
+        if (GameControl.control.loadNextLevel == true)
+        {
+            return;
+        }
         audio.PlayOneShot(clickSound);
         GameControl.control.PlayerSetup();
         GameControl.control.loadNextLevel = true;
     }
     public void Quit()
     {
+        if (GameControl.control.loadNextLevel == true)
+        {
+            return;
+        }
         audio.PlayOneShot(clickSound);
         GameControl.control.Save();
         Application.Quit();
     }
     public void Resume()
     {
+        if (GameControl.control.loadNextLevel == true)
+        {
+            return;
+        }
         audio.PlayOneShot(clickSound);
         GameControl.control.Pause();
     }
     public void ReturnToMenu()
     {
+        if (GameControl.control.loadNextLevel == true)
+        {
+            return;
+        }
         audio.PlayOneShot(clickSound);
         GameControl.control.Save();
         GameControl.control.PlayerSetup();

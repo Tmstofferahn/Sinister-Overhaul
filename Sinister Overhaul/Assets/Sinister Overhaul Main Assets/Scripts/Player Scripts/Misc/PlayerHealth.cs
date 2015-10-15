@@ -73,13 +73,13 @@ public class PlayerHealth : MonoBehaviour
             else if (GameControl.control.currentHealth < 3)
             {
                 GameControl.control.currentHealth++;
-                GameControl.control.score += 1000;
+                GameControl.control.score += 500;
                 return;
             }
             else if(GameControl.control.currentLives < 3)
             {
                 GameControl.control.currentLives++;
-                GameControl.control.score += 2000;
+                GameControl.control.score += 1000;
                 return;
             }
             else

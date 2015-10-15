@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         speed = maxSpeed;                   //Set speed to maxspeed to prevent errors of null values
         setAiming = false;                  //set bool to false to pevent errors of null values.
         GameControl.control.shieldEnergyCurrent = GameControl.control.shieldEnergyFull;
+        GameControl.control.shieldTimeRemaining = GameControl.control.shieldTimeAlive;
 
     }//end of Start()
 

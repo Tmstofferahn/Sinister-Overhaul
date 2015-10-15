@@ -89,6 +89,7 @@ public class GameControl : MonoBehaviour
 
     void OnLevelWasLoaded()
     {
+
         loading = false;
         loadNextLevel = false;
         loadMainMenu = false;

@@ -28,6 +28,7 @@ public class PlayerShieldHealth : MonoBehaviour
         //}
         if (col.transform.gameObject.tag == "EnemyBullet")
         {
+            GameControl.control.score += 10;
             UbhObjectPool.Instance.ReleaseGameObject(col.transform.parent.gameObject);
         }
 
