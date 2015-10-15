@@ -165,6 +165,7 @@ public class GameControl : MonoBehaviour
     }
     public void PlayerSetup()
     {
+        playerUpgradeLevel = 0;
         currentHealth = initialHealth;
         currentLives = initialLives;
         score = 0;
@@ -174,7 +175,8 @@ public class GameControl : MonoBehaviour
     {
         if (loading == false)
         {
-            if(lastWave == false)
+            playerUpgradeLevel = 0;
+            if (lastWave == false)
             {
                 loading = true;
                 yield return new WaitForSeconds(5.0f);
