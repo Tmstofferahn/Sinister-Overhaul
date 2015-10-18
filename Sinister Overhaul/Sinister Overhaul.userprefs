@@ -1,9 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game Scripts\GameOverManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Sinister Overhaul Main Assets\Scripts\Enemy Scripts\Misc\EnemyHealth.cs">
     <Files>
-      <File FileName="Assets\Scripts\Game Scripts\GameOverManager.cs" Line="26" Column="1" />
-      <File FileName="Assets\Scripts\Player Scripts\Barrels\PlayerShootSineWave.cs" Line="1" Column="1" />
+      <File FileName="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\Menu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Sinister Overhaul Main Assets\Scripts\Game Scripts\GameControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Sinister Overhaul Main Assets\Scripts\Enemy Scripts\Misc\EnemyHealth.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
