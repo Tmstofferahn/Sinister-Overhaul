@@ -56,6 +56,9 @@
      <None Include="Assets\UniBulletHell\Example\PaintShotData\paint_shot_data_0002.txt" />
      <None Include="Assets\Sinister Overhaul Main Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
      <None Include="Assets\Sinister Overhaul Main Assets\Art Assets\All Models\ShmupShipSample\readme.txt" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>E:/Users/Dylan/Downloads/Downloads 2.0/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>E:/Users/Dylan/Downloads/Downloads 2.0/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -70,6 +73,9 @@
  </Reference>
  <Reference Include="UnityEditor.Networking">
  <HintPath>E:/Users/Dylan/Downloads/Downloads 2.0/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>E:/Users/Dylan/Downloads/Downloads 2.0/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>E:/Users/Dylan/Downloads/Downloads 2.0/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>

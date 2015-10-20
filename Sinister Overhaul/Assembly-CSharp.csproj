@@ -172,11 +172,17 @@
      <None Include="Assets\UniBulletHell\Example\PaintShotData\paint_shot_data_0002.txt" />
      <None Include="Assets\Sinister Overhaul Main Assets\Art Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
      <None Include="Assets\Sinister Overhaul Main Assets\Art Assets\All Models\ShmupShipSample\readme.txt" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>E:/Users/Dylan/Downloads/Downloads 2.0/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Users/Dylan/Downloads/Downloads 2.0/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>E:/Users/Dylan/Downloads/Downloads 2.0/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>E:/Users/Dylan/Downloads/Downloads 2.0/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>E:/Users/Dylan/Downloads/Downloads 2.0/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
