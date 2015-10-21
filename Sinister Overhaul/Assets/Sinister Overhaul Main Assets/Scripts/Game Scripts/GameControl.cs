@@ -116,30 +116,11 @@ public class GameControl : MonoBehaviour
         {
             Pause();
         }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            loadNextLevel = true;
-        }
-
         if (Input.GetKeyDown(KeyCode.F))
         {
             MenuManager.guiControl.ToggleFPS();
         }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            if (playerUpgradeLevel < playerUpgradeLevelMax)
-            {
-                playerUpgradeLevel++;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            if(playerUpgradeLevel > 0)
-            {
-                playerUpgradeLevel--;
-            }
 
-        }
 
 
 
